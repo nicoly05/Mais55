@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .App {
   width: 100%;
@@ -6,14 +6,14 @@
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2d2d2d 100%);
+  background: #0a0a0a;
   min-height: 100vh;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(135deg, #1A1A1A 0%, #1a1a1a 50%, #2d2d2d 100%);
+  background: #0a0a0a;
   color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,19 +32,55 @@ html {
 /* Modern dark feminine color palette */
 :root {
   --primary-pink: #e83E73;
-  --secondary-pink: #e83E73;
+  --secondary-pink: #f26a96;
   --accent-pink: #EFA2B8;
   --soft-pink: #F6DDE6;
   --light-pink: #FFF0F5;
   --dark-text: #FFFFFF;
-  --light-text: #B0B0B0;
+  --light-text: #B8B8B8;
   --white: #FFFFFF;
-  --black: #1A1A1A;
-  --dark-gray: #1A1A1A;
-  --medium-gray: #2D2D2D;
-  --light-gray: #404040;
+  --black: #0a0a0a;
+  --ink: #0a0a0a;
+  --dark-gray: #141414;
+  --medium-gray: #1c1c1c;
+  --light-gray: #2a2a2a;
+  --mist: #cfcfcf;
+  --display: 'Cormorant Garamond', Georgia, serif;
   --shadow: 0 10px 40px rgba(232, 62, 115, 0.28);
   --shadow-hover: 0 15px 50px rgba(232, 62, 115, 0.45);
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-pink);
+  margin: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.12s; }
+.reveal-delay-2 { animation-delay: 0.24s; }
+.reveal-delay-3 { animation-delay: 0.36s; }
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Global button styles */

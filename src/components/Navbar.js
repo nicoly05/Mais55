@@ -15,10 +15,10 @@ function Navbar() {
   };
 
   return (
-    <div class="navbar">
+    <div className="navbar">
       <div className="leftSide" id={openLinks? "open": "close"}>
-        <Link to="/" onClick={closeMenu}>
-          <img src={Logo} alt="logo"/>
+        <Link to="/" onClick={closeMenu} className="brand">
+          <img src={Logo} alt="+55 Lab"/>
         </Link>
         <div className="hiddenLinks">
         <NavLink to="/"  onClick={closeMenu} className={({isActive})=> isActive? 'active' : ''}>Home</NavLink>
@@ -34,7 +34,8 @@ function Navbar() {
       <NavLink to="/Projetos" className={({isActive})=> isActive? 'active' : ''}>Projetos</NavLink>
       <NavLink to="/SobreNos" className={({isActive})=> isActive? 'active' : ''}>Sobre nós</NavLink>
       <NavLink to="/Contactos" className={({isActive})=> isActive? 'active' : ''}>Contactos</NavLink>
-      <button onClick={toggleNavbar}>
+      <Link to="/Contactos" className="navCta">Fale connosco</Link>
+      <button onClick={toggleNavbar} aria-label="Abrir menu">
         <ReorderIcon/>
       </button>
       </div>
