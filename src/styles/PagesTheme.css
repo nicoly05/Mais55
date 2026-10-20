@@ -1,0 +1,415 @@
+/* Reuse the Home palette and typography on the remaining routes. */
+.navbar {
+  background: rgba(10, 10, 10, 0.94);
+  border-bottom: 1px solid rgba(232, 62, 115, 0.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.navbar .navCta {
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(232, 62, 115, 0.22);
+}
+
+.hiddenLinks {
+  background: rgba(10, 10, 10, 0.98);
+  border-top: 1px solid rgba(232, 62, 115, 0.2);
+}
+
+.hiddenLinks a {
+  color: var(--white);
+}
+
+.projetosContainer {
+  background: #0a0a0a;
+  color: var(--white);
+}
+
+.projetosContainer h1,
+.servicos .boxTitulo h1,
+.sobreNos .boxTitulo h1,
+.brand-instagram-container .brand-title,
+.brand-instagram-container-not-found h1 {
+  color: var(--white);
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.heroInner h1 em,
+.footer-section h3,
+.footer-section h4 {
+  color: var(--primary-pink);
+}
+
+.projetosContainer h1::after,
+.servicos .boxTitulo h1::after,
+.sobreNos .boxTitulo h1::after,
+.brand-header .brand-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: var(--primary-pink);
+}
+
+.botoesFiltro button {
+  background: #141414;
+  border: 1px solid rgba(232, 62, 115, 0.3);
+  border-radius: 999px;
+  box-shadow: none;
+  color: var(--mist);
+}
+
+.botoesFiltro button:hover,
+.botoesFiltro button.active {
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: 0 8px 25px rgba(232, 62, 115, 0.22);
+  transform: translateY(-2px);
+}
+
+.imagemBox {
+  animation: pagesReveal 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.imagemConteudo {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.imagemConteudo:hover {
+  box-shadow: 0 16px 40px rgba(232, 62, 115, 0.2);
+}
+
+.imagemConteudo .overlay {
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(232, 62, 115, 0.76), rgba(230, 120, 160, 0.76));
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.imagemConteudo:hover .overlay,
+.imagemBox:focus-visible .overlay {
+  opacity: 1;
+}
+
+.imagemConteudo .overlay h3 {
+  color: var(--white);
+  font-family: var(--display);
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.imagemConteudo .overlay p {
+  color: var(--mist);
+}
+
+.servicos {
+  background: #0a0a0a;
+  color: var(--white);
+}
+
+.servicos .boxTitulo {
+  background:
+    radial-gradient(ellipse at center, rgba(232, 62, 115, 0.12), transparent 58%),
+    #0a0a0a;
+  padding: 76px 24px;
+}
+
+.servicos .boxRosa,
+.servicos .boxPreto {
+  position: relative;
+  min-height: 480px;
+  padding: 76px 40px;
+  background-color: transparent;
+  background-blend-mode: normal;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.servicos .boxRosa:hover,
+.servicos .boxPreto:hover {
+  background-color: transparent;
+}
+
+.servicos .boxRosa::before,
+.servicos .boxPreto::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.18), rgba(10, 10, 10, 0.06));
+  pointer-events: none;
+}
+
+.servicos .boxRosa::before {
+  display: none;
+}
+
+.servicos .boxColuna {
+  position: relative;
+  z-index: 1;
+}
+
+.servicos .boxTexto h2 {
+  color: var(--white);
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600;
+}
+
+.servicos .boxTexto ul li,
+.servicos .boxPreto .boxTexto h2,
+.servicos .boxPreto .boxTexto ul li {
+  color: var(--mist);
+}
+
+.servicos .boxRosa .boxTexto h2,
+.servicos .boxRosa .boxTexto ul li {
+  color: #1a1a1a;
+}
+
+.servicos .boxTexto ul li::before {
+  color: var(--accent-pink);
+}
+
+.servicos .buttonBoxRosa,
+.servicos .buttonBoxPreto {
+  min-height: 48px;
+  border: 1px solid var(--primary-pink);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+  box-shadow: 0 8px 24px rgba(232, 62, 115, 0.2);
+  letter-spacing: 0.02em;
+}
+
+.servicos .buttonBoxRosa:hover,
+.servicos .buttonBoxPreto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(232, 62, 115, 0.3);
+}
+
+.sobreNos {
+  background: #0a0a0a;
+  color: var(--white);
+}
+
+.sobreNos .boxTitulo {
+  width: 100%;
+  padding: 48px 24px;
+  background:
+    radial-gradient(ellipse at center, rgba(232, 62, 115, 0.1), transparent 62%),
+    #0a0a0a;
+}
+
+.sobreNos .boxTitulo h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.25rem, 4vw, 3.4rem);
+}
+
+.sobreNos .boxTitulo h3 {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--mist);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.sobreNos .imagemCentralizada {
+  margin: 0;
+  padding: 24px;
+  background: #0a0a0a;
+}
+
+.sobreNos .imagemCentralizada img {
+  width: min(100%, 1050px);
+  max-height: 620px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  object-fit: cover;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+}
+
+.contactos {
+  background: #0a0a0a;
+}
+
+.contactos .carouselContainer .carouselImage {
+  filter: brightness(0.58) saturate(0.9);
+}
+
+.contactos .backgroundOverlay {
+  background:
+    linear-gradient(90deg, rgba(10, 10, 10, 0.58), rgba(10, 10, 10, 0.16)),
+    radial-gradient(circle at 22% 48%, rgba(232, 62, 115, 0.1), transparent 48%);
+}
+
+.contactos .contactHeader,
+.contactos .contactHeader2 {
+  z-index: 2;
+  text-align: left;
+}
+
+.contactos .contactTitle {
+  color: var(--white);
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+}
+
+.contactos .contactTitle::after {
+  content: '';
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--primary-pink);
+}
+
+.contactos .contact-info {
+  gap: 12px;
+}
+
+.contactos .contact-button {
+  max-width: 480px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid var(--primary-pink);
+  border-radius: 4px;
+  background: rgba(20, 20, 20, 0.72);
+  color: var(--mist);
+  backdrop-filter: blur(8px);
+}
+
+.contactos .contact-button:hover {
+  background: rgba(232, 62, 115, 0.12);
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.brand-instagram-container,
+.brand-instagram-container-not-found {
+  background:
+    radial-gradient(ellipse at top, rgba(232, 62, 115, 0.1), transparent 52%),
+    #0a0a0a;
+}
+
+.brand-instagram-container .brand-header {
+  animation: pagesReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.brand-instagram-container .brand-title {
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+}
+
+.brand-instagram-container .brand-category {
+  color: var(--accent-pink);
+}
+
+.brand-instagram-container .brand-description {
+  color: var(--mist);
+}
+
+.brand-instagram-container .back-link2,
+.brand-instagram-container .profile-button {
+  border-radius: 999px;
+}
+
+.footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(232, 62, 115, 0.22);
+  padding-top: 56px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  color: var(--primary-pink);
+  font-family: var(--display);
+  font-weight: 600;
+}
+
+.footer-section p,
+.footer-section ul li,
+.footer-section ul li a,
+.footer-bottom p {
+  color: var(--mist);
+}
+
+.footer-section ul li a {
+  display: inline-block;
+}
+
+.footer-section ul li a:hover {
+  color: var(--white);
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+@keyframes pagesReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imagemBox,
+  .brand-instagram-container .brand-header {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicos .boxRosa,
+  .servicos .boxPreto {
+    min-height: 0;
+    padding: 56px 24px;
+  }
+
+  .sobreNos .boxTitulo {
+    padding: 38px 22px;
+  }
+
+  .sobreNos .boxTitulo h3 {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .projetosContainer {
+    padding: 42px 18px;
+  }
+
+  .botoesFiltro {
+    padding: 0;
+    gap: 9px;
+  }
+
+  .botoesFiltro button {
+    padding: 9px 14px;
+    font-size: 0.82rem;
+  }
+
+  .contactos .contactHeader,
+  .contactos .contactHeader2 {
+    margin-left: 0;
+  }
+
+  .contactos .contact-button {
+    overflow-wrap: anywhere;
+  }
+}

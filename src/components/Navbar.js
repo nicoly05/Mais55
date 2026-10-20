@@ -34,7 +34,7 @@ function Navbar() {
       <NavLink to="/Projetos" className={({isActive})=> isActive? 'active' : ''}>Projetos</NavLink>
       <NavLink to="/SobreNos" className={({isActive})=> isActive? 'active' : ''}>Sobre nós</NavLink>
       <NavLink to="/Contactos" className={({isActive})=> isActive? 'active' : ''}>Contactos</NavLink>
-      <Link to="/Contactos" className="navCta">Fale connosco</Link>
+      <a href="https://wa.me/351999888777" target="_blank" rel="noopener noreferrer" className="navCta">Fale connosco</a>
       <button onClick={toggleNavbar} aria-label="Abrir menu">
         <ReorderIcon/>
       </button>

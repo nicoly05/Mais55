@@ -9,6 +9,7 @@ import SobreNos from "./pages/SobreNos.js";
 import Projetos from "./pages/Projetos.js";
 import BrandInstagram from "./pages/BrandInstagram.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./styles/PagesTheme.css";
 
 
 

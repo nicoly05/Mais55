@@ -18,19 +18,18 @@ function Home() {
     { title: "Design Gráfico", description: "Artes, flyers e materiais visuais", categoria: 7 }
   ];
 
-  const [servicesIndex, setServicesIndex] = useState(0);
+  const [servicesIndex, setServicesIndex] = useState(servicesList.length * 3);
   const [servicesPerPage, setServicesPerPage] = useState(3);
+  const [servicesTransitionEnabled, setServicesTransitionEnabled] = useState(true);
   const carouselContainerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(0);
 
-  const maxServicesIndex = Math.max(0, servicesList.length - servicesPerPage);
-
   const handlePrevServices = () => {
-    setServicesIndex(prev => prev === 0 ? maxServicesIndex : prev - 1);
+    setServicesIndex(prev => prev - 1);
   };
 
   const handleNextServices = () => {
-    setServicesIndex(prev => prev >= maxServicesIndex ? 0 : prev + 1);
+    setServicesIndex(prev => prev + 1);
   };
 
   useEffect(() => {
@@ -46,12 +45,32 @@ function Home() {
     return () => window.removeEventListener('resize', update);
   }, []);
 
-  useEffect(() => {
-    setServicesIndex(prev => Math.min(prev, Math.max(0, servicesList.length - servicesPerPage)));
-  }, [servicesPerPage, servicesList.length]);
-
   const cardWidth = containerWidth && servicesPerPage ? containerWidth / servicesPerPage : 0;
-  const shift = servicesIndex * cardWidth;
+  const centerOffset = Math.floor((servicesPerPage - 1) / 2);
+  const shift = (servicesIndex - centerOffset) * cardWidth;
+
+  const handleServicesTransitionEnd = (event) => {
+    if (event.propertyName !== 'transform') return;
+
+    const cycleLength = servicesList.length;
+    const lowerLoopBoundary = cycleLength * 3;
+    const upperLoopBoundary = cycleLength * 4;
+    let normalizedIndex = servicesIndex;
+
+    if (servicesIndex < lowerLoopBoundary) {
+      normalizedIndex += cycleLength;
+    } else if (servicesIndex >= upperLoopBoundary) {
+      normalizedIndex -= cycleLength;
+    } else {
+      return;
+    }
+
+    setServicesTransitionEnabled(false);
+    setServicesIndex(normalizedIndex);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setServicesTransitionEnabled(true));
+    });
+  };
 
   return (
   <div className="home">
@@ -115,20 +134,27 @@ function Home() {
           <div className="services-carousel-container" ref={carouselContainerRef}>
             <div
               className="services-carousel-track"
-              style={{ transform: `translateX(-${shift}px)` }}
+              onTransitionEnd={handleServicesTransitionEnd}
+              style={{
+                transform: `translateX(-${shift}px)`,
+                transition: servicesTransitionEnabled ? undefined : 'none'
+              }}
             >
-              {servicesList.map((service, index) => (
+              {Array.from({ length: servicesList.length * 7 }, (_, index) => {
+                const service = servicesList[index % servicesList.length];
+                return (
                 <Link
-                  key={index}
+                  key={`${index}-${service.categoria}`}
                   to={`/Servicos?categoria=${service.categoria}`}
-                  className={`previewCard carousel-item ${index === servicesIndex + Math.min(1, servicesPerPage - 1) ? 'middle-card' : ''}`}
+                  className={`previewCard carousel-item ${index === servicesIndex ? 'middle-card' : ''}`}
                   style={{ flex: `0 0 ${100 / servicesPerPage}%`, minWidth: `${100 / servicesPerPage}%` }}
                 >
-                  <span className="cardIndex">0{index + 1}</span>
+                  <span className="cardIndex">0{service.categoria}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </div>
 
