@@ -121,8 +121,8 @@ function SobreNos() {
             <p className="statFigure" aria-hidden="true">+{brands}</p>
             <p className="statCaption">marcas acompanhadas</p>
           </article>
-          <article className="statCard" aria-label="3 serviços especializados">
-            <p className="statFigure statFigureCompact" aria-hidden="true">3</p>
+          <article className="statCard" aria-label="4 serviços especializados">
+            <p className="statFigure statFigureCompact" aria-hidden="true">4</p>
             <p className="statCaption">serviços especializados</p>
           </article>
         </div>
