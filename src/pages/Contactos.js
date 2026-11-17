@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/Contactos.css";
-import WhatsApp from '../assets/Whatsapp.png';
+import WhatsApp from '../assets/WhatsApp.png';
 import Instagram from '../assets/Instagram.png';
 import Mail from '../assets/Mail.png';
 import Victory from '../assets/Victory.png';
