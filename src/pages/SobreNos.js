@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/SobreNos.css';
 import Socias from '../assets/socias.jpg';
 import Glaucia from '../assets/glaucia-web.jpg';
-import Julita from '../assets/Giovanna.jpg';
+import Julita from '../assets/julita-web.jpg';
 
 function useCountUp(target, active, duration) {
   const reduceMotion = typeof window !== 'undefined'
@@ -106,7 +106,7 @@ function SobreNos() {
             <p>cofundadora.</p>
           </article>
           <article>
-            <img className="founderPhoto" src={Julita} alt="Julita Giovanna Feitosa" />
+            <img className="founderPhoto founderPhotoJulita" src={Julita} alt="Julita Giovanna Feitosa" />
             <h3>Julita Giovanna Feitosa</h3>
             <p>cofundadora.</p>
           </article>

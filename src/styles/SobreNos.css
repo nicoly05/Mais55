@@ -123,6 +123,10 @@
   object-position: 34% 42%;
 }
 
+.sobreSection .founderPhotoJulita {
+  object-position: 52% 35%;
+}
+
 .founders {
   display: grid;
   grid-template-columns: 1fr 1fr;
