@@ -100,21 +100,22 @@
   font-weight: 600;
 }
 
+.sobreSection .sociasPhoto {
+  display: block;
+  width: min(100%, 860px);
+  height: auto;
+  margin: 8px auto 28px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+}
+
 .founders {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
   margin-top: 8px;
   text-align: center;
-}
-
-.founders img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  object-position: center 20%;
-  border-radius: 18px;
-  margin: 0 0 18px;
 }
 
 .founders h3 {
@@ -261,8 +262,9 @@
     grid-template-columns: 1fr;
   }
 
-  .founders img {
-    height: 360px;
+  .sobreSection .sociasPhoto {
+    width: 100%;
+    margin-bottom: 22px;
   }
 
   .sobreButton {

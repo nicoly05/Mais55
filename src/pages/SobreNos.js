@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SobreNos.css';
-import Glaucia from '../assets/Glaucia.jpg';
-import Julita from '../assets/Giovanna.jpg';
+import Socias from '../assets/socias.jpg';
 
 function useCountUp(target, active, duration) {
   const reduceMotion = typeof window !== 'undefined'
@@ -97,14 +96,13 @@ function SobreNos() {
 
       <section className="sobreSection" aria-labelledby="equipa-title">
         <h2 id="equipa-title">A equipa</h2>
+        <img className="sociasPhoto" src={Socias} alt="Glaucia Feitosa e Julita Giovanna Feitosa" />
         <div className="founders">
           <article>
-            <img src={Glaucia} alt="Glaucia Feitosa" />
             <h3>Glaucia Feitosa</h3>
             <p>cofundadora.</p>
           </article>
           <article>
-            <img src={Julita} alt="Julita Giovanna Feitosa" />
             <h3>Julita Giovanna Feitosa</h3>
             <p>cofundadora.</p>
           </article>
