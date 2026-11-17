@@ -180,21 +180,29 @@
 }
 
 .teamBand .sectionContent {
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   gap: 22px;
 }
 
-.teamBand h2 {
+.sectionContainer.teamBand h2 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #fff;
   max-width: 16ch;
+  margin: 0 auto;
 }
 
 .teamBand p {
   max-width: 720px;
-  margin: 0;
+  margin: 0 auto;
   color: var(--mist);
   font-size: 1.05rem;
   line-height: 1.75;
+  text-align: center;
 }
 
 .heroScroll {

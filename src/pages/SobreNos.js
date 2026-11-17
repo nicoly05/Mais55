@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SobreNos.css';
 import GlauciaJulita from '../assets/GlauciaJulita.png';
+
+function useCountUp(target, active) {
+  const reduceMotion = typeof window !== 'undefined'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [value, setValue] = useState(reduceMotion ? target : 0);
+
+  useEffect(() => {
+    if (!active || reduceMotion) {
+      if (reduceMotion) setValue(target);
+      return undefined;
+    }
+    let frame;
+    const duration = target > 100 ? 1400 : 900;
+    const started = performance.now();
+    const tick = (now) => {
+      const progress = Math.min(1, (now - started) / duration);
+      const eased = 1 - (1 - progress) ** 3;
+      setValue(Math.round(eased * target));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, reduceMotion, target]);
+
+  return value;
+}
 
 const principles = [
   {
@@ -22,13 +48,29 @@ const principles = [
   },
 ];
 
-const stats = [
-  'Desde 2020 em Portugal',
-  '+20 marcas acompanhadas',
-  '3 serviços especializados',
-];
-
 function SobreNos() {
+  const numbersRef = useRef(null);
+  const [numbersVisible, setNumbersVisible] = useState(false);
+  const year = useCountUp(2020, numbersVisible);
+  const brands = useCountUp(20, numbersVisible);
+  const services = useCountUp(3, numbersVisible);
+
+  useEffect(() => {
+    const node = numbersRef.current;
+    if (!node) return undefined;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setNumbersVisible(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setNumbersVisible(true);
+      observer.disconnect();
+    }, { threshold: 0.4 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="sobreNos">
       <header className="sobreHero">
@@ -64,14 +106,22 @@ function SobreNos() {
         </ul>
       </section>
 
-      <section className="sobreSection" aria-labelledby="numeros-title">
+      <section className="sobreSection" aria-labelledby="numeros-title" ref={numbersRef}>
         <h2 id="numeros-title">A +55 lab em números</h2>
         <div className="statCards">
-          {stats.map((stat) => (
-            <article className="statCard" key={stat}>
-              <p>{stat}</p>
-            </article>
-          ))}
+          <article className="statCard" aria-label="Desde 2020 em Portugal">
+            <p className="statKicker">Desde</p>
+            <p className="statFigure" aria-hidden="true">{year}</p>
+            <p className="statCaption">em Portugal</p>
+          </article>
+          <article className="statCard" aria-label="+20 marcas acompanhadas">
+            <p className="statFigure" aria-hidden="true">+{brands}</p>
+            <p className="statCaption">marcas acompanhadas</p>
+          </article>
+          <article className="statCard" aria-label="3 serviços especializados">
+            <p className="statFigure" aria-hidden="true">{services}</p>
+            <p className="statCaption">serviços especializados</p>
+          </article>
         </div>
       </section>
 
