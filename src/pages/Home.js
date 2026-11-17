@@ -189,12 +189,12 @@ function Home() {
       </div>
     </section>
 
-    <div className="ticker" aria-hidden="true">
-      <div className="tickerTrack">
+    <div className="ticker brandTicker" aria-label="Marcas">
+      <div className="tickerTrack brandTickerTrack">
         {[0, 1].map((copy) => (
-          <div className="tickerGroup" key={copy}>
-            {servicesList.map((service) => (
-              <span key={copy + service.title}>{service.title}</span>
+          <div className="tickerGroup brandTickerGroup" key={copy} aria-hidden={copy === 1 ? 'true' : undefined}>
+            {brandLogos.map((logo) => (
+              <img key={`${copy}-${logo.alt}`} src={logo.src} alt={copy === 0 ? logo.alt : ''} />
             ))}
           </div>
         ))}
@@ -270,24 +270,6 @@ function Home() {
       <blockquote>Imaginação encontra estratégia.</blockquote>
       <span>+55 Lab</span>
     </div>
-
-    <section className="brandMarquee" aria-labelledby="brand-marquee-title">
-      <div className="sectionContent brandMarqueeHeading">
-        <p className="eyebrow">Marcas</p>
-        <h2 id="brand-marquee-title">Marcas que confiam em nós</h2>
-      </div>
-      <div className="ticker brandTicker">
-        <div className="tickerTrack brandTickerTrack">
-          {[0, 1].map((copy) => (
-            <div className="tickerGroup brandTickerGroup" key={copy} aria-hidden={copy === 1 ? 'true' : undefined}>
-              {brandLogos.map((logo) => (
-                <img key={`${copy}-${logo.alt}`} src={logo.src} alt={copy === 0 ? logo.alt : ''} />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
 
     <div className="sectionContainer servicesSection">
       <div className="sectionContent">

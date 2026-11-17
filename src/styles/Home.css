@@ -185,6 +185,18 @@
   gap: 22px;
 }
 
+.sectionContainer.teamBand {
+  justify-content: center;
+}
+
+.sectionContainer.teamBand .sectionContent {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .sectionContainer.teamBand h2 {
   font-family: var(--display);
   font-size: clamp(2rem, 5vw, 3.4rem);
@@ -193,12 +205,20 @@
   line-height: 1.1;
   color: #fff;
   max-width: 16ch;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.sectionContainer.teamBand p,
+.sectionContainer.teamBand a {
+  text-align: center;
 }
 
 .teamBand p {
   max-width: 720px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--mist);
   font-size: 1.05rem;
   line-height: 1.75;

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SobreNos.css';
-import GlauciaJulita from '../assets/GlauciaJulita.png';
+import Glaucia from '../assets/Glaucia.jpg';
+import Julita from '../assets/Giovanna.jpg';
 
-function useCountUp(target, active) {
+function useCountUp(target, active, duration) {
   const reduceMotion = typeof window !== 'undefined'
     && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const [value, setValue] = useState(reduceMotion ? target : 0);
@@ -14,7 +15,6 @@ function useCountUp(target, active) {
       return undefined;
     }
     let frame;
-    const duration = target > 100 ? 1400 : 900;
     const started = performance.now();
     const tick = (now) => {
       const progress = Math.min(1, (now - started) / duration);
@@ -24,7 +24,7 @@ function useCountUp(target, active) {
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [active, reduceMotion, target]);
+  }, [active, duration, reduceMotion, target]);
 
   return value;
 }
@@ -51,9 +51,7 @@ const principles = [
 function SobreNos() {
   const numbersRef = useRef(null);
   const [numbersVisible, setNumbersVisible] = useState(false);
-  const year = useCountUp(2020, numbersVisible);
-  const brands = useCountUp(20, numbersVisible);
-  const services = useCountUp(3, numbersVisible);
+  const brands = useCountUp(20, numbersVisible, 1170);
 
   useEffect(() => {
     const node = numbersRef.current;
@@ -99,11 +97,18 @@ function SobreNos() {
 
       <section className="sobreSection" aria-labelledby="equipa-title">
         <h2 id="equipa-title">A equipa</h2>
-        <img src={GlauciaJulita} alt="Glaucia Feitosa e Julita Giovanna Feitosa" />
-        <ul className="founders">
-          <li>Glaucia Feitosa, cofundadora.</li>
-          <li>Julita Giovanna Feitosa, cofundadora.</li>
-        </ul>
+        <div className="founders">
+          <article>
+            <img src={Glaucia} alt="Glaucia Feitosa" />
+            <h3>Glaucia Feitosa</h3>
+            <p>cofundadora.</p>
+          </article>
+          <article>
+            <img src={Julita} alt="Julita Giovanna Feitosa" />
+            <h3>Julita Giovanna Feitosa</h3>
+            <p>cofundadora.</p>
+          </article>
+        </div>
       </section>
 
       <section className="sobreSection" aria-labelledby="numeros-title" ref={numbersRef}>
@@ -111,7 +116,7 @@ function SobreNos() {
         <div className="statCards">
           <article className="statCard" aria-label="Desde 2020 em Portugal">
             <p className="statKicker">Desde</p>
-            <p className="statFigure" aria-hidden="true">{year}</p>
+            <p className="statFigure" aria-hidden="true">2020</p>
             <p className="statCaption">em Portugal</p>
           </article>
           <article className="statCard" aria-label="+20 marcas acompanhadas">
@@ -119,15 +124,14 @@ function SobreNos() {
             <p className="statCaption">marcas acompanhadas</p>
           </article>
           <article className="statCard" aria-label="3 serviços especializados">
-            <p className="statFigure" aria-hidden="true">{services}</p>
+            <p className="statFigure statFigureCompact" aria-hidden="true">3</p>
             <p className="statCaption">serviços especializados</p>
           </article>
         </div>
       </section>
 
-      <section className="sobreCta" aria-labelledby="sobre-cta-title">
-        <h2 id="sobre-cta-title">Pretende trabalhar connosco?</h2>
-        <Link to="/Contactos" className="sobreButton">Contactar →</Link>
+      <section className="sobreCta">
+        <Link to="/Contactos" className="sobreButton">Trabalhe connosco!</Link>
       </section>
     </div>
   );
