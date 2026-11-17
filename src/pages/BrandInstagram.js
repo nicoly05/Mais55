@@ -8,7 +8,7 @@ const imagens = [
   { 
     id: 1, 
     titulo: "WrestleFest", 
-    legenda: "Identidade Visual, Gestão de Redes, Captação e Edição de Fotos e Vídeos, Cobertura em tempo real, Produção Audiovisual, Design Gráfico e Eventos",
+    legenda: "Design Gráfico, Gestão de Redes, Produção Audiovisual, Cobertura em tempo real e Eventos",
     descricao: "Desenvolvimento de identidade visual, gestão de redes sociais, captação e edição de fotos e vídeos, cobertura em tempo real, produção audiovisual, design gráfico e eventos para WrestleFest",
     instagramPosts: [
       {
@@ -54,7 +54,7 @@ const imagens = [
   { 
     id: 2, 
     titulo: "Janah Estética e Bem Estar", 
-    legenda: "Captação de Fotos e Vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação de fotos e vídeos para Janah Estética e Bem Estar",
     instagramPosts: [
       {
@@ -89,7 +89,7 @@ const imagens = [
   { 
     id: 3, 
     titulo: "Escola Benfica Cascais Malveira", 
-    legenda: "Identidade Visual",
+    legenda: "Design Gráfico",
     descricao: "Identidade visual e gestão de redes sociais para Benfica Cascais Malveira",
     instagramPosts: [
       {
@@ -103,7 +103,7 @@ const imagens = [
    { 
     id: 4, 
     titulo: "União Atlético Povoense", 
-    legenda: "Identidade Visual",
+    legenda: "Design Gráfico",
     descricao: "Identidade visual e gestão de redes sociais para União Atlético Povoense",
     instagramPosts: [
       {
@@ -114,7 +114,7 @@ const imagens = [
    { 
     id: 5, 
     titulo: "Victory, Way To Win", 
-    legenda: "Identidade Visual",
+    legenda: "Design Gráfico",
     descricao: "Identidade visual e gestão de redes sociais para Victory",
     instagramPosts: [
       {
@@ -128,7 +128,7 @@ const imagens = [
   { 
     id: 6, 
     titulo: "Ruche", 
-    legenda: "Identidade Visual",
+    legenda: "Design Gráfico",
     descricao: "Identidade visual e gestão de redes sociais para Ruche",
     instagramPosts: [
       {

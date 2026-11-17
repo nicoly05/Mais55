@@ -649,7 +649,7 @@
   justify-content: center;
   box-sizing: border-box;
   padding: 32px;
-  background: #0e0e0e;
+  background: var(--primary-pink);
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -663,9 +663,9 @@
 }
 
 .projectCardCta:hover {
-  background: var(--primary-pink);
+  background: #000;
   color: #fff;
-  box-shadow: 0 16px 40px rgba(232, 62, 115, 0.35);
+  box-shadow: none;
 }
 
 @media (max-width: 980px) {

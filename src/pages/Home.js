@@ -56,13 +56,10 @@ function Home() {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
   const servicesList = [
-    { title: "Identidade Visual", description: "Logotipos, paletas de cores e manuais de marca", categoria: 1 },
+    { title: "Produção Audiovisual", description: "Conceito e guião, captação de vídeo e fotografia, edição e pós-produção, e formatos para cada plataforma.", categoria: 6 },
     { title: "Gestão de Redes", description: "Conteúdo estratégico para redes sociais", categoria: 2 },
-    { title: "Captação de Imagens", description: "Fotografia e vídeo profissional", categoria: 3 },
-    { title: "Edição de Fotos e Vídeos", description: "Tratamento de imagens e montagem", categoria: 4 },
-    { title: "Cobertura em Tempo Real", description: "Stories, reels e lives", categoria: 5 },
-    { title: "Produção Audiovisual", description: "Vídeos institucionais e comerciais", categoria: 6 },
-    { title: "Design Gráfico", description: "Artes, flyers e materiais visuais", categoria: 7 }
+    { title: "Design Gráfico", description: "Artes, flyers, identidade visual e materiais visuais", categoria: 7 },
+    { title: "Cobertura em Tempo Real", description: "Stories, reels e lives", categoria: 5 }
   ];
 
   const [servicesIndex, setServicesIndex] = useState(servicesList.length * 3);
@@ -204,7 +201,7 @@ function Home() {
 
     <div className="statsBar">
       <div className="stat">
-        <strong>07</strong>
+        <strong>04</strong>
         <span>serviços criativos</span>
       </div>
       <div className="stat">
@@ -251,7 +248,7 @@ function Home() {
                   className={`previewCard carousel-item ${index === servicesIndex ? 'middle-card' : ''}`}
                   style={{ flex: `0 0 ${100 / servicesPerPage}%`, minWidth: `${100 / servicesPerPage}%` }}
                 >
-                  <span className="cardIndex">0{service.categoria}</span>
+                  <span className="cardIndex">{String((index % servicesList.length) + 1).padStart(2, '0')}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </Link>
@@ -262,7 +259,7 @@ function Home() {
 
           <button className="carousel-arrow right" onClick={handleNextServices} aria-label="Próximo serviço">→</button>
         </div>
-        <Link to="/Servicos?categoria=1" className="sectionLink">Ver todos os serviços</Link>
+        <Link to="/Servicos" className="sectionLink">Ver todos os serviços</Link>
       </div>
     </div>
 

@@ -27,11 +27,10 @@ function Footer() {
         <div className="footer-section">
           <h4>Serviços</h4>
           <ul>
-            <li><Link to="/Servicos?categoria=1" onClick={scrollTop}>Identidade Visual</Link></li>
-            <li><Link to="/Servicos?categoria=2" onClick={scrollTop}>Gestão de Redes</Link></li>
-            <li><Link to="/Servicos?categoria=3" onClick={scrollTop}>Captação e Edição de Fotos e Vídeos</Link></li>
             <li><Link to="/Servicos?categoria=6" onClick={scrollTop}>Produção Audiovisual</Link></li>
+            <li><Link to="/Servicos?categoria=2" onClick={scrollTop}>Gestão de Redes Sociais</Link></li>
             <li><Link to="/Servicos?categoria=7" onClick={scrollTop}>Design Gráfico</Link></li>
+            <li><Link to="/Servicos?categoria=5" onClick={scrollTop}>Cobertura em Tempo Real</Link></li>
           </ul>
         </div>
         

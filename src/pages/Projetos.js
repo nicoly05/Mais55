@@ -30,44 +30,44 @@ const logoFileById = {
 const imagens = [
   { 
     id: 1, 
-    categoria: [1, 2, 3, 4, 5, 6, 7, 8], 
+    categoria: [2, 5, 6, 7, 8], 
     titulo: "WrestleFest", 
-    legenda: "Identidade Visual, Gestão de Redes, Captação e Edição de Fotos e Vídeos, Cobertura em tempo real, Produção Audiovisual, Design Gráfico e Eventos",
-    descricao: "Desenvolvimento de identidade visual, gestão de redes sociais, captação e edição de fotos e vídeos, cobertura em tempo real, produção audiovisual, design gráfico e eventos para WrestleFest"
+    legenda: "Design Gráfico, Gestão de Redes, Produção Audiovisual, Cobertura em tempo real e Eventos",
+    descricao: "Design gráfico, gestão de redes sociais, produção audiovisual, cobertura em tempo real e eventos para WrestleFest"
   },
   { 
     id: 2, 
-    categoria: [3, 4, 9], 
+    categoria: [6, 9], 
     titulo: "Janah", 
-    legenda: "Captação e edição de Fotos e Vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para RTP"
   },
   { 
     id: 3, 
-    categoria: [1, 2, 3, 4, 10], 
+    categoria: [2, 6, 7, 10], 
     titulo: " Escola Benfica Cascais Malveira", 
-    legenda: "Identidade Visual, Gestão de Redes, Captação e Edição de Fotos e Vídeos",
-    descricao: "Identidade visual, gestão de redes sociais e captação e edição de fotos e vídeos para Benfica Cascais Malveira"
+    legenda: "Design Gráfico, Gestão de Redes e Produção Audiovisual",
+    descricao: "Design gráfico, gestão de redes sociais e produção audiovisual para Benfica Cascais Malveira"
   },
   { 
     id: 4, 
-    categoria: [3, 4, 10],
+    categoria: [6, 10],
     titulo: "UAPovoense", 
-    legenda: "Captação e edição de Fotos e Vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para UAPovoense"
   },
   { 
     id: 5, 
-    categoria: [3, 4, 10], 
+    categoria: [6, 10], 
     titulo: "Victory", 
-    legenda: "Captação e edição de Fotos e Vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para Victory"
   },
   { 
     id: 6, 
-    categoria: [3, 11], 
+    categoria: [6, 11], 
     titulo: "Ruche", 
-    legenda: "Captação e edição de Fotos e Vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para Ruche"
   },
   { 
@@ -100,9 +100,9 @@ const imagens = [
   },
   { 
     id: 11, 
-    categoria: [3, 11], 
+    categoria: [6, 11], 
     titulo: "Gelo Augusta", 
-    legenda: "Captação de Fotos e Vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para Gelo Augusta"
   },
   { 
@@ -135,17 +135,17 @@ const imagens = [
   },
     { 
     id: 16, 
-    categoria: [3, 4, 12], 
+    categoria: [6, 12], 
     titulo: "Julita Imóveis", 
-    legenda: "Captura e edição de fotos e vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captura e edição de fotos e vídeos para Julita Imóveis"
   },
     { 
     id: 17, 
-    categoria: [2, 3, 4, 8], 
+    categoria: [2, 6, 8], 
     titulo: "Bailo", 
-    legenda: "Gestão de Redes, Captação e edição de fotos e vídeos",
-    descricao: "Gestão de redes sociais, captação e edição de fotos e vídeos para Bailo"
+    legenda: "Gestão de Redes e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e produção audiovisual para Bailo"
   },
     { 
     id: 18, 
@@ -170,10 +170,10 @@ const imagens = [
   },
    { 
     id: 21, 
-    categoria: [2, 3, 4, 10], 
+    categoria: [2, 6, 10], 
     titulo: "Top Player", 
-    legenda: "Gestão de Redes, Captação e edição de fotos e vídeos",
-    descricao: "Gestão de redes, captação e edição de fotos e vídeos para Top Player"
+    legenda: "Gestão de Redes e Produção Audiovisual",
+    descricao: "Gestão de redes e produção audiovisual para Top Player"
   },
    { 
     id: 22, 
@@ -184,51 +184,51 @@ const imagens = [
   },
    { 
     id: 23, 
-    categoria: [3, 4], 
+    categoria: [6], 
     titulo: "Gabriela Rosa", 
-    legenda: "Captura e edição de fotos e vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captura e edição de fotos e vídeos para Gabriela Rosa"
   },
   { 
     id: 24, 
-    categoria: [3, 4, 10], 
+    categoria: [6, 10], 
     titulo: "DS", 
-    legenda: "Captação e edição de fotos e vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para DS"
   },
   { 
     id: 25, 
-    categoria: [3, 9], 
+    categoria: [6, 9], 
     titulo: " Maria Lidiane Beauty", 
-    legenda: "Captação e edição de fotos e vídeos",
+    legenda: "Produção Audiovisual",
     descricao: "Captação e edição de fotos e vídeos para Lidiane"
   },
   { 
     id: 26, 
-    categoria: [3, 5, 8], 
+    categoria: [5, 6, 8], 
     titulo: "Skechers - Nós Alive", 
-    legenda: "Captação de fotos e vídeos em tempo real",
+    legenda: "Cobertura em tempo real e Produção Audiovisual",
     descricao: "Captação de fotos e vídeos em tempo real para Skechers - Nós Alive"
   },
    { 
     id: 27, 
-    categoria: [3, 5, 8], 
+    categoria: [5, 6, 8], 
     titulo: "Novex - Rock in Rio", 
-    legenda: "Captação de fotos e vídeos em tempo real",
+    legenda: "Cobertura em tempo real e Produção Audiovisual",
     descricao: "Captação de fotos e vídeos em tempo real para Novex - Rock in Rio"
   },
    { 
     id: 28, 
-    categoria: [3, 5, 8], 
+    categoria: [5, 6, 8], 
     titulo: "Visit Azores - BTL", 
-    legenda: "Captação de fotos e vídeos em tempo real",
+    legenda: "Cobertura em tempo real e Produção Audiovisual",
     descricao: "Captação de fotos e vídeos em tempo real para Visit Azores - BTL"
   },
    { 
     id: 29, 
-    categoria: [3, 5, 8], 
+    categoria: [5, 6, 8], 
     titulo: "Seminário Advogados", 
-    legenda: "Captação de fotos e vídeos em tempo real",
+    legenda: "Cobertura em tempo real e Produção Audiovisual",
     descricao: "Captação de fotos e vídeos em tempo real para Seminário Advogados"
   },
 ];
@@ -258,13 +258,10 @@ function Projetos() {
 
       <div className="botoesFiltro">
         <button className={filtro === 'todos' ? 'active' : ''} onClick={() => setFiltro('todos')}>Todos</button>
-        <button className={filtro === 1 ? 'active' : ''} onClick={() => setFiltro(1)}>Identidade Visual</button>
-        <button className={filtro === 2 ? 'active' : ''} onClick={() => setFiltro(2)}>Gestão de Redes Sociais</button>
-        <button className={filtro === 3 ? 'active' : ''} onClick={() => setFiltro(3)}>Captação de Fotos e Vídeos</button>
-        <button className={filtro === 4 ? 'active' : ''} onClick={() => setFiltro(4)}>Edição de Fotos e Vídeos</button>
-        <button className={filtro === 5 ? 'active' : ''} onClick={() => setFiltro(5)}>Cobertura em tempo real</button>
         <button className={filtro === 6 ? 'active' : ''} onClick={() => setFiltro(6)}>Produção Audiovisual</button>
+        <button className={filtro === 2 ? 'active' : ''} onClick={() => setFiltro(2)}>Gestão de Redes Sociais</button>
         <button className={filtro === 7 ? 'active' : ''} onClick={() => setFiltro(7)}>Design Gráfico</button>
+        <button className={filtro === 5 ? 'active' : ''} onClick={() => setFiltro(5)}>Cobertura em Tempo Real</button>
         <button className={filtro === 8 ? 'active' : ''} onClick={() => setFiltro(8)}>Eventos</button>
         <button className={filtro === 9 ? 'active' : ''} onClick={() => setFiltro(9)}>Estética & Moda</button>
         <button className={filtro === 10 ? 'active' : ''} onClick={() => setFiltro(10)}>Desporto</button>
