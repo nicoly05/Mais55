@@ -69,6 +69,15 @@
   color: #b0b0b0;
 }
 
+.footer-bottom a {
+  color: #b0b0b0;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: var(--primary-pink);
+}
+
 @media screen and (max-width: 768px) {
   .footer {
     padding: 40px 20px 20px;

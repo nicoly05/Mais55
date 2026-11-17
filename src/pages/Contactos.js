@@ -143,7 +143,7 @@ function Contactos() {
               required
             />
             <span>
-              Autorizo a +55 lab a conservar os meus dados para efeitos de resposta ao meu pedido. Consulte a <a href="#">Política de Privacidade</a>.
+              Autorizo a +55 lab a conservar os meus dados para efeitos de resposta ao meu pedido. Consulte a <a href="/politica-de-privacidade.pdf" target="_blank" rel="noopener">Política de Privacidade</a>.
             </span>
           </label>
 

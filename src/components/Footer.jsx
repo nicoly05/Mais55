@@ -47,6 +47,7 @@ function Footer() {
       
       <div className="footer-bottom">
         <p>&copy; 2026 +55 Lab. Agência de comunicação. Portugal</p>
+        <p><a href="/politica-de-privacidade.pdf" target="_blank" rel="noopener">Política de Privacidade</a></p>
       </div>
     </footer>
   );
