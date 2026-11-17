@@ -1,13 +1,59 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import "../styles/Home.css"
-import HomeImage from '../assets/HomeImage.png';
 import Victory from '../assets/Victory.png';
 import JanahEstetica from '../assets/JanahEstetica.png';
 import BenficaCascaisMalveira from '../assets/BenficaCascaisMalveira.png';
 import Ruche from '../assets/Ruche.png';
 
+const brandLogoContext = require.context('../assets/brands', false, /\.png$/);
+const brandAltByFile = {
+  'ana_ferreira_hair_logo_completo_branco.png': 'Ana Ferreira Hair',
+  'bailo_branco.png': 'Bailo',
+  'cafe_gelo_rossio_branco.png': 'Café Gelo Rossio',
+  'cafe_portugal_branco.png': 'Café Portugal',
+  'ds_football_foundation_branco.png': 'DS Football Foundation',
+  'escola_benfica_cascais_branco.png': 'Escola Benfica Cascais',
+  'fiore_ditalia_branco.png': "Fiore d'Italia",
+  'gelo_augusta_branco.png': 'Gelo Augusta',
+  'ginasio_100_branco.png': 'Academia 100',
+  'grupo_desportivo_barril_branco.png': 'Grupo Desportivo Barril',
+  'julita_lima_branco.png': 'Julita Lima',
+  'maria_lidiane_beauty_branco.png': 'Maria Lidiane Beauty',
+  'mova_pilates_branco.png': 'Mova Pilates',
+  'ouro_my_story_hotels_branco.png': 'Ouro My Story Hotels',
+  'skechers_branco.png': 'Skechers',
+  'taverna_do_pescador_branco.png': 'Taverna do Pescador',
+  'top_player_branco.png': 'Top Player',
+  'tribx_branco.png': 'TribX',
+  'victory_branco.png': 'Victory',
+  'vila_dias_branco.png': 'Vila Dias',
+  'villa_di_roma_branco.png': 'Villa di Roma',
+  'visionhammer_branco.png': 'Visionhammer',
+  'vitelli_branco.png': 'Vitelli',
+  'wrestlefest_branco.png': 'Wrestlefest',
+};
+const brandLogos = brandLogoContext.keys().sort().map((key) => {
+  const file = key.replace('./', '');
+  return { src: brandLogoContext(key), alt: brandAltByFile[file] || file };
+});
+
+function SoundIcon({ muted }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M4 9.5h3.2L12 5.8v12.4l-4.8-3.7H4v-5z" />
+      {muted ? (
+        <path d="M16 9.2l5 5m0-5l-5 5" />
+      ) : (
+        <path d="M16 9.2a3.6 3.6 0 010 5.6M18.4 7a6.4 6.4 0 010 10" />
+      )}
+    </svg>
+  );
+}
+
 function Home() {
+  const videoRef = useRef(null);
+  const [muted, setMuted] = useState(true);
   const servicesList = [
     { title: "Identidade Visual", description: "Logotipos, paletas de cores e manuais de marca", categoria: 1 },
     { title: "Gestão de Redes", description: "Conteúdo estratégico para redes sociais", categoria: 2 },
@@ -30,6 +76,40 @@ function Home() {
 
   const handleNextServices = () => {
     setServicesIndex(prev => prev + 1);
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+    video.muted = true;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncPlayback = () => {
+      if (motion.matches) {
+        video.pause();
+        return;
+      }
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') {
+        attempt.catch(() => {});
+      }
+    };
+    syncPlayback();
+    motion.addEventListener('change', syncPlayback);
+    return () => motion.removeEventListener('change', syncPlayback);
+  }, []);
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setMuted(nextMuted);
+    if (!nextMuted && video.paused) {
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') {
+        attempt.catch(() => {});
+      }
+    }
   };
 
   useEffect(() => {
@@ -77,9 +157,29 @@ function Home() {
 
     <section className="hero">
       <div className="heroMedia">
-        <img src={HomeImage} alt="" />
+        <video
+          ref={videoRef}
+          className="heroVideo"
+          src="/home-video.mp4"
+          poster="/home-video-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
         <div className="heroWash" />
       </div>
+      <button
+        type="button"
+        className={`heroSound ${muted ? '' : 'isOn'}`}
+        onClick={toggleSound}
+        aria-pressed={!muted}
+        aria-label={muted ? 'Ativar som do vídeo' : 'Silenciar vídeo'}
+      >
+        <SoundIcon muted={muted} />
+        <span>Som</span>
+      </button>
       <div className="heroBloom heroBloomOne" />
       <div className="heroBloom heroBloomTwo" />
       <div className="heroInner">
@@ -169,6 +269,24 @@ function Home() {
       <blockquote>Imaginação encontra estratégia.</blockquote>
       <span>+55 Lab</span>
     </div>
+
+    <section className="brandMarquee" aria-labelledby="brand-marquee-title">
+      <div className="sectionContent brandMarqueeHeading">
+        <p className="eyebrow">Marcas</p>
+        <h2 id="brand-marquee-title">Marcas que confiam em nós</h2>
+      </div>
+      <div className="ticker brandTicker">
+        <div className="tickerTrack brandTickerTrack">
+          {[0, 1].map((copy) => (
+            <div className="tickerGroup brandTickerGroup" key={copy} aria-hidden={copy === 1 ? 'true' : undefined}>
+              {brandLogos.map((logo) => (
+                <img key={`${copy}-${logo.alt}`} src={logo.src} alt={copy === 0 ? logo.alt : ''} />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <div className="sectionContainer servicesSection">
       <div className="sectionContent">

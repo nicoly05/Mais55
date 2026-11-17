@@ -26,22 +26,67 @@
   inset: 0;
 }
 
-.heroMedia img {
+.heroMedia video,
+.heroVideo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 28%;
-  transform: scale(1.08);
-  animation: heroDrift 18s ease-in-out infinite alternate;
-  filter: brightness(0.55) saturate(0.85);
+  object-position: center center;
+  background: #000;
+  filter: brightness(0.82) saturate(0.95);
 }
 
 .heroWash {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.2) 40%, rgba(10,10,10,0.88) 100%),
-    linear-gradient(90deg, rgba(232,62,115,0.18), transparent 55%);
+    linear-gradient(90deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.5) 36%, rgba(10,10,10,0.12) 70%),
+    linear-gradient(180deg, rgba(10,10,10,0.28) 0%, rgba(10,10,10,0.08) 42%, rgba(10,10,10,0.78) 100%);
+}
+
+.heroSound {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(239, 162, 184, 0.55);
+  background: rgba(10, 10, 10, 0.55);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.heroSound svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.heroSound svg path:first-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+.heroSound:hover,
+.heroSound.isOn {
+  background: var(--primary-pink);
+  border-color: transparent;
+  color: #fff;
 }
 
 .heroBloom {
@@ -162,6 +207,40 @@
   font-style: normal;
 }
 
+.brandMarquee {
+  width: 100%;
+  background: #0a0a0a;
+  padding-top: 36px;
+}
+
+.brandMarqueeHeading {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.brandTicker {
+  background: #0d0d0d;
+  padding: 32px 0;
+}
+
+.brandTickerTrack {
+  animation-duration: 72s;
+}
+
+.brandTickerGroup {
+  align-items: center;
+  gap: 72px;
+  padding-right: 72px;
+}
+
+.brandTickerGroup img {
+  display: block;
+  width: auto;
+  height: 64px;
+  object-fit: contain;
+}
+
 .statsBar {
   width: 100%;
   display: grid;
@@ -258,7 +337,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .heroMedia img,
   .heroBloom,
   .tickerTrack,
   .heroScroll,
@@ -266,6 +344,10 @@
     animation: none !important;
     opacity: 1;
     transform: none;
+  }
+
+  .brandTicker {
+    overflow-x: auto;
   }
 }
 
@@ -1004,11 +1086,40 @@
 
 @media only screen and (max-width: 768px) {
   .hero {
-    min-height: 78vh;
+    min-height: 92vh;
+    align-items: flex-end;
+  }
+
+  .heroMedia video,
+  .heroVideo {
+    object-position: center 22%;
+  }
+
+  .heroWash {
+    background: linear-gradient(180deg, rgba(10,10,10,0.12) 0%, rgba(10,10,10,0.2) 36%, rgba(10,10,10,0.88) 100%);
   }
 
   .heroInner {
-    margin-bottom: 64px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+  }
+
+  .heroSound {
+    top: 16px;
+    right: 16px;
+  }
+
+  .brandTicker {
+    padding: 22px 0;
+  }
+
+  .brandTickerGroup {
+    gap: 48px;
+    padding-right: 48px;
+  }
+
+  .brandTickerGroup img {
+    height: 46px;
   }
 
   .heroScroll {
