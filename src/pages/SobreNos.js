@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SobreNos.css';
 import Socias from '../assets/socias.jpg';
+import Glaucia from '../assets/glaucia-web.jpg';
+import Julita from '../assets/Giovanna.jpg';
 
 function useCountUp(target, active, duration) {
   const reduceMotion = typeof window !== 'undefined'
@@ -73,6 +75,7 @@ function SobreNos() {
       <header className="sobreHero">
         <p className="eyebrow">Sobre nós</p>
         <h1>Duas sócias, uma agência e uma abordagem própria à comunicação.</h1>
+        <img className="sociasPhoto" src={Socias} alt="Glaucia Feitosa e Julita Giovanna Feitosa" />
       </header>
 
       <section className="sobreSection" aria-labelledby="origem-title">
@@ -96,13 +99,14 @@ function SobreNos() {
 
       <section className="sobreSection" aria-labelledby="equipa-title">
         <h2 id="equipa-title">A equipa</h2>
-        <img className="sociasPhoto" src={Socias} alt="Glaucia Feitosa e Julita Giovanna Feitosa" />
         <div className="founders">
           <article>
+            <img className="founderPhoto founderPhotoGlaucia" src={Glaucia} alt="Glaucia Feitosa" />
             <h3>Glaucia Feitosa</h3>
             <p>cofundadora.</p>
           </article>
           <article>
+            <img className="founderPhoto" src={Julita} alt="Julita Giovanna Feitosa" />
             <h3>Julita Giovanna Feitosa</h3>
             <p>cofundadora.</p>
           </article>
