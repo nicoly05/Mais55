@@ -1,43 +1,35 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import '../styles/Projetos.css';
-import Victory from '../assets/Victory.png';
-import JanahEstetica from '../assets/JanahEstetica.png';
-import BenficaCascaisMalveira from '../assets/BenficaCascaisMalveira.png';
-import Ruche from '../assets/Ruche.png';
-import WrestleFest from '../assets/WrestleFest.png';
-import UAPovoense from '../assets/UAPovoense.png';
-import CafePortugal from '../assets/CafePortugal.png';
-import GeloAugusta from '../assets/GeloAugusta.png';
-import GeloRossio from '../assets/GeloRossio.png';
-import Ouro from '../assets/Ouro.jpeg';
-import TavernaDoPescador from '../assets/TavernaDoPescador.png';
-import VillaDiRoma from '../assets/VillaDiRoma.png';
-import MariaLidiane from '../assets/MariaLidiane1.jpg';
-import TopPlayer from '../assets/TopPlayer.png';
-import Academia from '../assets/Academia100.png';
-import AnaFerreira from '../assets/AnaFerreira.jpg';
-import Bailo from '../assets/Bailo.png';
-import VilaDias from '../assets/VilaDias.png';
-import Brasa from '../assets/Brasa.jpeg';
-import DS from '../assets/DS.jpeg';
-import TribX from '../assets/TribX.jpeg';
-import Skechers from '../assets/Skechers.png';
-import SeminarioAdvogados from '../assets/SeminarioAdvogados.jpg';
-import JulitaImoveis from '../assets/JulitaImoveis.jpeg';
-import Novex from '../assets/Novex.jpeg';
-import EditePsicologa from '../assets/EditePsicologa.jpeg';
-import AcademiaBarril from '../assets/AcademiaBarril.png'; 
-import VisitAzores from '../assets/VisitAzores.png';
-import GabrielaRosa from '../assets/GabrielaRosa.jpeg';
-import TEMPORARIO from '../assets/temporario.jpeg';
-import { useSearchParams } from 'react-router-dom';
+
+const brandLogos = require.context('../assets/brands', false, /_branco\.png$/);
+const logoFileById = {
+  1: 'wrestlefest_branco.png',
+  3: 'escola_benfica_cascais_branco.png',
+  5: 'victory_branco.png',
+  7: 'cafe_portugal_branco.png',
+  8: 'cafe_gelo_rossio_branco.png',
+  9: 'taverna_do_pescador_branco.png',
+  10: 'villa_di_roma_branco.png',
+  11: 'gelo_augusta_branco.png',
+  12: 'ouro_my_story_hotels_branco.png',
+  14: 'ginasio_100_branco.png',
+  15: 'ana_ferreira_hair_logo_completo_branco.png',
+  16: 'julita_lima_branco.png',
+  17: 'bailo_branco.png',
+  18: 'tribx_branco.png',
+  19: 'vila_dias_branco.png',
+  21: 'top_player_branco.png',
+  22: 'grupo_desportivo_barril_branco.png',
+  24: 'ds_football_foundation_branco.png',
+  25: 'maria_lidiane_beauty_branco.png',
+  26: 'skechers_branco.png',
+};
 
 
 const imagens = [
   { 
     id: 1, 
-    src: WrestleFest, 
     categoria: [1, 2, 3, 4, 5, 6, 7, 8], 
     titulo: "WrestleFest", 
     legenda: "Identidade Visual, Gestão de Redes, Captação e Edição de Fotos e Vídeos, Cobertura em tempo real, Produção Audiovisual, Design Gráfico e Eventos",
@@ -45,7 +37,6 @@ const imagens = [
   },
   { 
     id: 2, 
-    src: JanahEstetica, 
     categoria: [3, 4, 9], 
     titulo: "Janah", 
     legenda: "Captação e edição de Fotos e Vídeos",
@@ -53,7 +44,6 @@ const imagens = [
   },
   { 
     id: 3, 
-    src: BenficaCascaisMalveira, 
     categoria: [1, 2, 3, 4, 10], 
     titulo: " Escola Benfica Cascais Malveira", 
     legenda: "Identidade Visual, Gestão de Redes, Captação e Edição de Fotos e Vídeos",
@@ -61,7 +51,6 @@ const imagens = [
   },
   { 
     id: 4, 
-    src: UAPovoense, 
     categoria: [3, 4, 10],
     titulo: "UAPovoense", 
     legenda: "Captação e edição de Fotos e Vídeos",
@@ -69,7 +58,6 @@ const imagens = [
   },
   { 
     id: 5, 
-    src: Victory, 
     categoria: [3, 4, 10], 
     titulo: "Victory", 
     legenda: "Captação e edição de Fotos e Vídeos",
@@ -77,7 +65,6 @@ const imagens = [
   },
   { 
     id: 6, 
-    src: Ruche, 
     categoria: [3, 11], 
     titulo: "Ruche", 
     legenda: "Captação e edição de Fotos e Vídeos",
@@ -85,7 +72,6 @@ const imagens = [
   },
   { 
     id: 7, 
-    src: CafePortugal, 
     categoria: [2, 11], 
     titulo: "Café Portugal", 
     legenda: "Gestão de Redes",
@@ -93,7 +79,6 @@ const imagens = [
   },
   { 
     id: 8, 
-    src: GeloRossio, 
     categoria: [2, 11], 
     titulo: "Café Gelo", 
     legenda: "Gestão de Redes",
@@ -101,7 +86,6 @@ const imagens = [
   },
   { 
     id: 9, 
-    src: TavernaDoPescador, 
     categoria: [2, 11], 
     titulo: "Taverna do Pescador", 
     legenda: "Gestão de Redes",
@@ -109,7 +93,6 @@ const imagens = [
   },
   { 
     id: 10, 
-    src: VillaDiRoma, 
     categoria: [2, 11], 
     titulo: "Villa di Roma", 
     legenda: "Gestão de Redes",
@@ -117,7 +100,6 @@ const imagens = [
   },
   { 
     id: 11, 
-    src: GeloAugusta, 
     categoria: [3, 11], 
     titulo: "Gelo Augusta", 
     legenda: "Captação de Fotos e Vídeos",
@@ -125,7 +107,6 @@ const imagens = [
   },
   { 
     id: 12, 
-    src: Ouro, 
     categoria: [2, 11], 
     titulo: "Restaurante Ouro", 
     legenda: "Gestão de Redes",
@@ -133,7 +114,6 @@ const imagens = [
   },
   { 
     id: 13, 
-    src: Brasa, 
     categoria: [2, 11], 
     titulo: "Brasa Lisboa", 
     legenda: "Gestão de Redes",
@@ -141,7 +121,6 @@ const imagens = [
   },
   { 
     id: 14, 
-    src: Academia, 
     categoria: [2, 10], 
     titulo: "Academia 100%", 
     legenda: "Gestão de Redes",
@@ -149,7 +128,6 @@ const imagens = [
   },
     { 
     id: 15, 
-    src: AnaFerreira, 
     categoria: [2, 9], 
     titulo: "Ana Ferreira Hair", 
     legenda: "Gestão de Redes",
@@ -157,7 +135,6 @@ const imagens = [
   },
     { 
     id: 16, 
-    src: JulitaImoveis, 
     categoria: [3, 4], 
     titulo: "Julita Imóveis", 
     legenda: "Captura e edição de fotos e vídeos",
@@ -165,7 +142,6 @@ const imagens = [
   },
     { 
     id: 17, 
-    src: Bailo, 
     categoria: [2, 3, 4, 8], 
     titulo: "Bailo", 
     legenda: "Gestão de Redes, Captação e edição de fotos e vídeos",
@@ -173,7 +149,6 @@ const imagens = [
   },
     { 
     id: 18, 
-    src: TribX, 
     categoria: [2, 10], 
     titulo: "TribX", 
     legenda: "Gestão de Redes",
@@ -181,7 +156,6 @@ const imagens = [
   },
     { 
     id: 19, 
-    src: VilaDias, 
     categoria: [2, 12], 
     titulo: "Vila Dias Alojamento Local", 
     legenda: "Gestão de Redes",
@@ -189,7 +163,6 @@ const imagens = [
   },
    { 
     id: 20, 
-    src: EditePsicologa, 
     categoria: [2], 
     titulo: "Edite Psicologa", 
     legenda: "Gestão de Redes",
@@ -197,7 +170,6 @@ const imagens = [
   },
    { 
     id: 21, 
-    src: TopPlayer, 
     categoria: [2, 3, 4, 10], 
     titulo: "Top Player", 
     legenda: "Gestão de Redes, Captação e edição de fotos e vídeos",
@@ -205,7 +177,6 @@ const imagens = [
   },
    { 
     id: 22, 
-    src: AcademiaBarril, 
     categoria: [2], 
     titulo: "Academia Barril", 
     legenda: "Gestão de Redes",
@@ -213,7 +184,6 @@ const imagens = [
   },
    { 
     id: 23, 
-    src: GabrielaRosa, 
     categoria: [3, 4], 
     titulo: "Gabriela Rosa", 
     legenda: "Captura e edição de fotos e vídeos",
@@ -221,7 +191,6 @@ const imagens = [
   },
   { 
     id: 24, 
-    src: DS, 
     categoria: [3, 4, 10], 
     titulo: "DS", 
     legenda: "Captação e edição de fotos e vídeos",
@@ -229,7 +198,6 @@ const imagens = [
   },
   { 
     id: 25, 
-    src: MariaLidiane, 
     categoria: [3, 9], 
     titulo: " Maria Lidiane Beauty", 
     legenda: "Captação e edição de fotos e vídeos",
@@ -237,7 +205,6 @@ const imagens = [
   },
   { 
     id: 26, 
-    src: Skechers, 
     categoria: [3, 5, 8], 
     titulo: "Skechers - Nós Alive", 
     legenda: "Captação de fotos e vídeos em tempo real",
@@ -245,7 +212,6 @@ const imagens = [
   },
    { 
     id: 27, 
-    src: Novex, 
     categoria: [3, 5, 8], 
     titulo: "Novex - Rock in Rio", 
     legenda: "Captação de fotos e vídeos em tempo real",
@@ -253,7 +219,6 @@ const imagens = [
   },
    { 
     id: 28, 
-    src: VisitAzores, 
     categoria: [3, 5, 8], 
     titulo: "Visit Azores - BTL", 
     legenda: "Captação de fotos e vídeos em tempo real",
@@ -261,7 +226,6 @@ const imagens = [
   },
    { 
     id: 29, 
-    src: SeminarioAdvogados, 
     categoria: [3, 5, 8], 
     titulo: "Seminário Advogados", 
     legenda: "Captação de fotos e vídeos em tempo real",
@@ -304,7 +268,11 @@ function Projetos() {
         {imagensFiltradas.map((img) => (
           <Link to={`/brand-instagram/${img.id}`} key={img.id} className="imagemBox">
             <div className="imagemConteudo">
-              <img src={img.src} alt={img.titulo} />
+              {logoFileById[img.id] ? (
+                <img className="brandLogo" src={brandLogos(`./${logoFileById[img.id]}`)} alt="" />
+              ) : (
+                <span className="fallbackName">{img.titulo}</span>
+              )}
               <div className="overlay">
                 <h3>{img.titulo}</h3>
                 <p>{img.legenda}</p>

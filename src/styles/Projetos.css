@@ -82,50 +82,65 @@
   }
 }
 
-.imagemConteudo {
+.projetosContainer .imagemConteudo {
   position: relative;
   width: 100%;
   aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
-  background: white;
+  background: var(--primary-pink);
   box-shadow: var(--shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.imagemConteudo:hover {
+.projetosContainer .imagemConteudo:hover,
+.projetosContainer .imagemBox:focus-visible .imagemConteudo {
+  background: #fff;
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
 }
 
-.imagemConteudo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+.projetosContainer .brandLogo,
+.projetosContainer .fallbackName {
+  width: 78%;
+  max-height: 58%;
+  object-fit: contain;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.projetosContainer .fallbackName {
   display: block;
+  color: #fff;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  padding: 16px;
 }
 
-.imagemConteudo:hover img {
-  transform: scale(1.1);
+.projetosContainer .imagemConteudo:hover .brandLogo,
+.projetosContainer .imagemConteudo:hover .fallbackName,
+.projetosContainer .imagemBox:focus-visible .brandLogo,
+.projetosContainer .imagemBox:focus-visible .fallbackName {
+  opacity: 0;
 }
 
-.imagemConteudo .overlay {
+.projetosContainer .imagemConteudo .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(232, 62, 115, 0.9), rgba(230, 120, 160, 0.9));
-  backdrop-filter: blur(8px);
-  color: white;
+  inset: 0;
+  background: transparent;
+  color: var(--primary-pink);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  border-radius: 20px;
-  transition: all 0.4s ease;
+  border-radius: inherit;
+  transition: opacity 0.4s ease;
   text-align: center;
   padding: 20px;
 }
@@ -134,7 +149,8 @@
   opacity: 1;
 }
 
-.imagemConteudo .overlay h3 {
+.projetosContainer .imagemConteudo .overlay h3 {
+  color: var(--primary-pink);
   font-size: 1.3rem;
   font-weight: 700;
   margin: 0 0 8px 0;
@@ -147,11 +163,11 @@
   transform: translateY(0);
 }
 
-.imagemConteudo .overlay p {
+.projetosContainer .imagemConteudo .overlay p {
+  color: var(--primary-pink);
   font-size: 0.95rem;
   margin: 0;
   font-weight: 400;
-  opacity: 0.9;
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transform: translateY(10px);
   transition: transform 0.4s ease 0.1s;

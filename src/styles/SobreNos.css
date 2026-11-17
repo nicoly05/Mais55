@@ -208,8 +208,8 @@
   margin: 8px auto 0;
   padding: 18px 30px;
   border-radius: 22px;
-  border: 1px solid rgba(232, 62, 115, 0.55);
-  background: #000;
+  border: 1px solid transparent;
+  background: var(--primary-pink);
   color: #fff;
   font-weight: 600;
   text-decoration: none;

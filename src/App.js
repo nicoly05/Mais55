@@ -8,15 +8,29 @@ import Servicos from "./pages/Servicos.js";
 import SobreNos from "./pages/SobreNos.js";
 import Projetos from "./pages/Projetos.js";
 import BrandInstagram from "./pages/BrandInstagram.js";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
 import "./styles/PagesTheme.css";
 
-
+function ScrollToTop() {
+  const { pathname, search } = useLocation();
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, search]);
+  return null;
+}
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 
 function Footer() {
+  const scrollTop = () => window.scrollTo(0, 0);
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -14,22 +16,22 @@ function Footer() {
         <div className="footer-section">
           <h4>Navegação</h4>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/Servicos">Serviços</Link></li>
-            <li><Link to="/Projetos">Projetos</Link></li>
-            <li><Link to="/SobreNos">Sobre Nós</Link></li>
-            <li><Link to="/Contactos">Contactos</Link></li>
+            <li><Link to="/" onClick={scrollTop}>Home</Link></li>
+            <li><Link to="/Servicos" onClick={scrollTop}>Serviços</Link></li>
+            <li><Link to="/Projetos" onClick={scrollTop}>Projetos</Link></li>
+            <li><Link to="/SobreNos" onClick={scrollTop}>Sobre Nós</Link></li>
+            <li><Link to="/Contactos" onClick={scrollTop}>Contactos</Link></li>
           </ul>
         </div>
         
         <div className="footer-section">
           <h4>Serviços</h4>
           <ul>
-            <li><Link to="/Servicos?categoria=1">Identidade Visual</Link></li>
-            <li><Link to="/Servicos?categoria=2">Gestão de Redes</Link></li>
-            <li><Link to="/Servicos?categoria=3">Captação e Edição de Fotos e Vídeos</Link></li>
-            <li><Link to="/Servicos?categoria=6">Produção Audiovisual</Link></li>
-            <li><Link to="/Servicos?categoria=7">Design Gráfico</Link></li>
+            <li><Link to="/Servicos?categoria=1" onClick={scrollTop}>Identidade Visual</Link></li>
+            <li><Link to="/Servicos?categoria=2" onClick={scrollTop}>Gestão de Redes</Link></li>
+            <li><Link to="/Servicos?categoria=3" onClick={scrollTop}>Captação e Edição de Fotos e Vídeos</Link></li>
+            <li><Link to="/Servicos?categoria=6" onClick={scrollTop}>Produção Audiovisual</Link></li>
+            <li><Link to="/Servicos?categoria=7" onClick={scrollTop}>Design Gráfico</Link></li>
           </ul>
         </div>
         
