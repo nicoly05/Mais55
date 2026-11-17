@@ -155,7 +155,7 @@ function Home() {
   return (
   <div className="home">
 
-    <section className="hero">
+    <section className="hero" aria-label="Vídeo">
       <div className="heroMedia">
         <video
           ref={videoRef}
@@ -168,31 +168,24 @@ function Home() {
           playsInline
           preload="auto"
         />
-        <div className="heroWash" />
       </div>
-      <button
-        type="button"
-        className={`heroSound ${muted ? '' : 'isOn'}`}
-        onClick={toggleSound}
-        aria-pressed={!muted}
-        aria-label={muted ? 'Ativar som do vídeo' : 'Silenciar vídeo'}
-      >
-        <SoundIcon muted={muted} />
-        <span>Som</span>
-      </button>
-      <div className="heroBloom heroBloomOne" />
-      <div className="heroBloom heroBloomTwo" />
-      <div className="heroInner">
-        <p className="eyebrow reveal">+55 Lab · Portugal</p>
-        <h1 className="reveal reveal-delay-1">A sua marca merece ser <em>vista como é</em></h1>
-        <p className="heroLead reveal reveal-delay-2">Somos uma agência de comunicação que transforma a presença digital de negócios em Portugal em algo que atrai, convence e converte.</p>
-        <div className="heroActions reveal reveal-delay-3">
-          <a href="https://wa.me/351999888777" className="sectionLink primary">Fale connosco</a>
-          <Link to="/Projetos" className="sectionLink">Ver projetos</Link>
-        </div>
-      </div>
-      <div className="heroScroll">
-        <span>deslize</span>
+    </section>
+
+    <section className="heroIntro" aria-labelledby="hero-intro-title">
+      <h1 id="hero-intro-title">Comunicação digital</h1>
+      <p>Estratégia e conteúdo para marcas em Portugal.</p>
+      <div className="heroActions">
+        <Link to="/Projetos" className="sectionLink">Conhecer projetos</Link>
+        <Link to="/Contactos" className="sectionLink primary">Fale connosco</Link>
+        <button
+          type="button"
+          className={`heroSound ${muted ? '' : 'isOn'}`}
+          onClick={toggleSound}
+          aria-pressed={!muted}
+          aria-label={muted ? 'Ativar som do vídeo' : 'Silenciar vídeo'}
+        >
+          <SoundIcon muted={muted} />
+        </button>
       </div>
     </section>
 
@@ -222,6 +215,14 @@ function Home() {
         <span>confiança no Google</span>
       </div>
     </div>
+
+    <section className="sectionContainer teamBand" aria-labelledby="team-band-title">
+      <div className="sectionContent">
+        <h2 id="team-band-title">Uma equipa dedicada a cada marca.</h2>
+        <p>Fundada em 2020 por duas sócias com formação em Ciências da Comunicação, a +55 lab conta hoje com uma equipa de mais de seis colaboradores. Trabalha com marcas e entidades das áreas da restauração, desporto e eventos. Cada projeto parte de uma estratégia definida e é acompanhado de perto até à entrega final.</p>
+        <Link to="/SobreNos" className="sectionLink">Conhecer a equipa →</Link>
+      </div>
+    </section>
 
     <div className="sectionContainer projectsSection">
       <div className="sectionContent">
@@ -366,7 +367,7 @@ function Home() {
         <p className="eyebrow">Próximo passo</p>
         <h2>Pronto para transformar a sua comunicação?</h2>
         <p className="sectionDescription">Vamos trabalhar juntas para elevar a sua marca — com estética, estratégia e presença.</p>
-        <a href="https://wa.me/351999888777" className="sectionLink primary">Começar conversa</a>
+        <a href="https://wa.me/351915546801" className="sectionLink primary">Começar conversa</a>
       </div>
     </div>
 

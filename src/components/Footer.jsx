@@ -36,8 +36,8 @@ function Footer() {
         <div className="footer-section">
           <h4>Contactos</h4>
           <ul>
-            <li><a href="mailto:mais55lab@gmail.com">📧 mais55lab@gmail.com</a></li>
-            <li><a href="tel:+351912345678">📱 +351 912 345 678</a></li>
+            <li><a href="mailto:geral@mais55lab.com">📧 geral@mais55lab.com</a></li>
+            <li><a href="tel:+351915546801">📱 915 546 801</a></li>
             <li>📍 Lisboa, Portugal</li>
           </ul>
         </div>
