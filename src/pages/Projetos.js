@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import '../styles/Projetos.css';
 
@@ -135,7 +135,7 @@ const imagens = [
   },
     { 
     id: 16, 
-    categoria: [3, 4], 
+    categoria: [3, 4, 12], 
     titulo: "Julita Imóveis", 
     legenda: "Captura e edição de fotos e vídeos",
     descricao: "Captura e edição de fotos e vídeos para Julita Imóveis"
@@ -237,8 +237,16 @@ function Projetos() {
   // const [filtro, setFiltro] = useState('todos');
 
   const [searchParams] = useSearchParams();
+  const filtroParam = searchParams.get('filtro');
   const categoriaParam = searchParams.get('categoria');
-  const [filtro, setFiltro] = useState(categoriaParam ? Number(categoriaParam) : 'todos');
+  const filtroFromUrl = filtroParam === 'todos' || !categoriaParam
+    ? 'todos'
+    : Number(categoriaParam);
+  const [filtro, setFiltro] = useState(filtroFromUrl);
+
+  useEffect(() => {
+    setFiltro(filtroFromUrl);
+  }, [filtroFromUrl]);
 
 
   const imagensFiltradas =
@@ -261,7 +269,7 @@ function Projetos() {
         <button className={filtro === 9 ? 'active' : ''} onClick={() => setFiltro(9)}>Estética & Moda</button>
         <button className={filtro === 10 ? 'active' : ''} onClick={() => setFiltro(10)}>Desporto</button>
         <button className={filtro === 11 ? 'active' : ''} onClick={() => setFiltro(11)}>Gastronomia</button>
-        <button className={filtro === 12 ? 'active' : ''} onClick={() => setFiltro(12)}>Turismo</button>
+        <button className={filtro === 12 ? 'active' : ''} onClick={() => setFiltro(12)}>Imobiliário / Alojamento</button>
       </div>
 
       <div className="gradeImagens">

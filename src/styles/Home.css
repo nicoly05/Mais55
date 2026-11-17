@@ -643,9 +643,40 @@
   background: linear-gradient(180deg, rgba(232,62,115,0.12) 0%, rgba(10,10,10,0.86) 100%);
 }
 
+.projectCardCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px;
+  background: #0e0e0e;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  border: 1px solid rgba(232, 62, 115, 0.4);
+  transition: background 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+
+.projectCardCta:hover {
+  background: var(--primary-pink);
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(232, 62, 115, 0.35);
+}
+
 @media (max-width: 980px) {
   .projectGrid { grid-template-columns: repeat(2, 1fr); }
   .projectCard { height: 40vh; }
+}
+
+@media (max-width: 600px) {
+  .projectGrid { grid-template-columns: 1fr; }
+  .projectCard { height: 42vh; }
+  .projectCardCta { font-size: 2rem; }
 }
 
 @media (max-width: 600px) {

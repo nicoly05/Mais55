@@ -5,6 +5,7 @@ import Victory from '../assets/Victory.png';
 import JanahEstetica from '../assets/JanahEstetica.png';
 import BenficaCascaisMalveira from '../assets/BenficaCascaisMalveira.png';
 import Ruche from '../assets/Ruche.png';
+import JulitaImoveis from '../assets/JulitaImoveis.jpeg';
 
 const brandLogoContext = require.context('../assets/brands', false, /\.png$/);
 const brandAltByFile = {
@@ -283,19 +284,22 @@ function Home() {
               { id: 10, src: Victory, title: 'Eventos', category: 'Eventos' },
               { id: 11, src: JanahEstetica, title: 'Estética e Moda', category: 'Estética & Moda' },
               { id: 12, src: BenficaCascaisMalveira, title: 'Desporto', category: 'Desporto' },
-              { id: 13, src: Ruche, title: 'Gastronomia', category: 'Gastronomia' }
+              { id: 13, src: Ruche, title: 'Gastronomia', category: 'Gastronomia' },
+              { id: 'julita', src: JulitaImoveis, title: 'Imobiliário / Alojamento', category: '', to: '/Projetos?categoria=12' }
             ].map((proj) => (
-              <Link key={proj.id} to={`/Projetos?categoria=${proj.id}`} className="projectCard">
+              <Link key={proj.id} to={proj.to || `/Projetos?categoria=${proj.id}`} className="projectCard">
                 <img src={proj.src} alt={proj.title} />
                 <div className="projectOverlay">
-                  <p className="projectLabel">{proj.category}</p>
+                  {proj.category ? <p className="projectLabel">{proj.category}</p> : null}
                   <h3 className="projectTitle">{proj.title}</h3>
                 </div>
               </Link>
             ))}
+            <Link to="/Projetos?filtro=todos" className="projectCard projectCardCta">
+              Ver todos os projetos
+            </Link>
           </div>
         </div>
-        <Link to="/Projetos" className="sectionLink">Explorar todos os projetos</Link>
       </div>
     </div>
 
