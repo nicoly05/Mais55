@@ -183,6 +183,107 @@
     padding: 12px 30px;
     font-size: 1rem;
   }
+  .social-card {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .social-card__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  
+  .social-card__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #E83E73;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  .social-card__nome {
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+  }
+  
+  .social-card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #111;
+  }
+  
+  .social-card--linkedin .social-card__media { aspect-ratio: 4 / 5; }
+  
+  .social-card__media iframe,
+  .social-card__preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .social-card__preview {
+    cursor: pointer;
+    background: #111 center / cover no-repeat;
+    display: grid;
+    place-items: center;
+  }
+  
+  .social-card__play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 26px;
+    display: grid;
+    place-items: center;
+    padding-left: 4px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  
+  .social-card__preview:hover .social-card__play {
+    transform: scale(1.1);
+    background: #E83E73;
+  }
+  
+  .social-card__legenda {
+    margin: 0;
+    padding: 10px 14px 0;
+    font-size: 13px;
+    color: #262626;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .social-card__link {
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #E83E73;
+    text-decoration: none;
+    border-top: 1px solid #efefef;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 480px) {

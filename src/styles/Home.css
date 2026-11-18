@@ -1402,3 +1402,28 @@
     gap: 10px;
   }
 }
+/* Carrossel de marcas arrastável */
+.brandTicker {
+  overflow-x: auto;
+  scrollbar-width: none;          /* Firefox */
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-x pan-y;
+}
+
+.brandTicker::-webkit-scrollbar {
+  display: none;                  /* Chrome / Safari */
+}
+
+.brandTicker.isDragging {
+  cursor: grabbing;
+}
+
+.brandTicker .brandTickerTrack {
+  animation: none !important;     /* agora quem mexe é o JavaScript */
+}
+
+.brandTicker img {
+  pointer-events: none;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import InstagramEmbed from '../components/InstagramEmbed';
+import SocialEmbed from '../components/SocialEmbed';
 import '../styles/BrandInstagram.css';
+
 
 // Import the same data from Projetos.js
 const imagens = [
@@ -145,6 +146,66 @@ const imagens = [
       }
     ],
   },
+  { 
+    id: 28, 
+    titulo: "Visit Azores - BTL", 
+    legenda: "Produção Audiovisual, Cobertura em tempo real e Eventos",
+    descricao: "Produção de vídeos e fotos para Visit Azores",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVWprQykl2T/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVVr_PMlHjR/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVRvw0Kj9xe/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVRWE72EpM9/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVO9OjRAkKn/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVMh2RAgsZX/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DHQm9hCCFfJ/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DHPDzZvC9t2/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DHODRF_iVx_/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DHMlD70C2JF/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DHKBnCSCTn3/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DHIpGjpiybt/",
+      }
+    ],
+  },{ 
+    id: 27, 
+    titulo: "Novex - Rock in Rio", 
+    legenda: "Design Gráfico",
+    descricao: "Produção de vídeos e fotos para Novex - Rock in Rio",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/p/C8SVur4IFnP/",
+      }, 
+      {
+        instagramUrl: "https://www.instagram.com/p/C8o28lQqw5c/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reels/DZSC8k9M4mX/",
+      }
+    ],
+  },
 ];
 
 function BrandInstagram() {
@@ -173,9 +234,12 @@ function BrandInstagram() {
         <div className="instagram-posts">
           {brand.instagramPosts && brand.instagramPosts.length > 0 ? (
             brand.instagramPosts.map((post, index) => (
-              <InstagramEmbed
+              <SocialEmbed
                 key={index}
-                url={post.instagramUrl}
+                url={post.url || post.instagramUrl}
+                thumb={post.thumb}
+                titulo={post.titulo}
+                marca={brand.name}
               />
             ))
           ) : (

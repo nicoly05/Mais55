@@ -52,6 +52,125 @@ function SoundIcon({ muted }) {
   );
 }
 
+function BrandTicker() {
+  const viewportRef = useRef(null);
+  const trackRef = useRef(null);
+  const x = useRef(0);
+  const half = useRef(0);
+  const holding = useRef(false);
+  const drag = useRef({ id: null, startX: 0, startY: 0, startPos: 0, lastX: 0, lastT: 0, moved: false });
+  const velocity = useRef(0);
+  const resumeAt = useRef(0);
+  const [dragging, setDragging] = useState(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return undefined;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SECONDS_PER_LOOP = 72; // velocidade: menor = mais rápido
+
+    const measure = () => {
+      const firstGroup = track.firstElementChild;
+      half.current = firstGroup ? firstGroup.getBoundingClientRect().width : 0;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    track.querySelectorAll('img').forEach((img) => {
+      if (!img.complete) img.addEventListener('load', measure, { once: true });
+    });
+
+    let frame;
+    let last = performance.now();
+    const tick = (now) => {
+      const dt = Math.min((now - last) / 1000, 0.1);
+      last = now;
+      const w = half.current;
+      if (w > 0 && !holding.current) {
+        if (Math.abs(velocity.current) > 5) {
+          x.current += velocity.current * dt;           // pequena inércia
+          velocity.current *= Math.pow(0.04, dt);
+        } else if (!reduceMotion && now >= resumeAt.current) {
+          x.current -= (w / SECONDS_PER_LOOP) * dt;     // anda sozinho
+        }
+      }
+      if (w > 0) {
+        x.current = ((x.current % w) - w) % w;          // loop infinito
+        track.style.transform = `translate3d(${x.current}px, 0, 0)`;
+      }
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', measure);
+    };
+  }, []);
+
+  const onPointerDown = (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    holding.current = true;
+    velocity.current = 0;
+    drag.current = {
+      id: e.pointerId, startX: e.clientX, startY: e.clientY, startPos: x.current,
+      lastX: e.clientX, lastT: performance.now(), moved: false,
+    };
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+    setDragging(true);
+  };
+
+  const onPointerMove = (e) => {
+    const d = drag.current;
+    if (!holding.current || e.pointerId !== d.id) return;
+    const dx = e.clientX - d.startX;
+    if (Math.abs(dx) > 3) d.moved = true;
+    x.current = d.startPos + dx;
+    const now = performance.now();
+    const dtMs = now - d.lastT;
+    if (dtMs > 0) velocity.current = ((e.clientX - d.lastX) / dtMs) * 1000;
+    d.lastX = e.clientX;
+    d.lastT = now;
+  };
+
+  const endDrag = (e) => {
+    if (!holding.current || e.pointerId !== drag.current.id) return;
+    holding.current = false;
+    if (performance.now() - drag.current.lastT > 80) velocity.current = 0;
+    velocity.current = Math.max(-2500, Math.min(2500, velocity.current));
+    resumeAt.current = performance.now() + 1500; // volta a andar 1,5 s depois
+    setDragging(false);
+  };
+
+  return (
+    <div
+      ref={viewportRef}
+      className={`ticker brandTicker${dragging ? ' isDragging' : ''}`}
+      aria-label="Marcas"
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onLostPointerCapture={endDrag}
+      onDragStart={(e) => e.preventDefault()}
+    >
+      <div ref={trackRef} className="tickerTrack brandTickerTrack">
+        {[0, 1].map((copy) => (
+          <div className="tickerGroup brandTickerGroup" key={copy} aria-hidden={copy === 1 ? 'true' : undefined}>
+            {brandLogos.map((logo) => (
+              <img
+                key={`${copy}-${logo.alt}`}
+                src={logo.src}
+                alt={copy === 0 ? logo.alt : ''}
+                draggable={false}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Home() {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
@@ -187,17 +306,11 @@ function Home() {
       </div>
     </section>
 
-    <div className="ticker brandTicker" aria-label="Marcas">
-      <div className="tickerTrack brandTickerTrack">
-        {[0, 1].map((copy) => (
-          <div className="tickerGroup brandTickerGroup" key={copy} aria-hidden={copy === 1 ? 'true' : undefined}>
-            {brandLogos.map((logo) => (
-              <img key={`${copy}-${logo.alt}`} src={logo.src} alt={copy === 0 ? logo.alt : ''} />
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
+ 
+  <div className="tickerTrack brandTickerTrack">
+    <BrandTicker />
+  </div>
+
 
     <div className="statsBar">
       <div className="stat">
