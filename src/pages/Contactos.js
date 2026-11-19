@@ -111,7 +111,7 @@ function Contactos() {
       <header className="contactHero">
         <p className="eyebrow">Contactos</p>
         <h1>Pretende falar sobre o seu projeto?</h1>
-        <p>Descreva-nos brevemente a sua marca e as suas necessidades. Responderemos no prazo máximo de 24 horas.</p>
+        <p>Descreva-nos brevemente a sua marca e as suas necessidades. Responderemos o mais breve possível.</p>
       </header>
 
       <div className="contactLayout">
