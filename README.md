@@ -1,102 +1,152 @@
 # Site +55 Lab
 
-Este repositório contém o front-end de um site institucional criado com Create React App. O objetivo é apresentar os serviços, projetos e contactos da agência +55 Lab.
-
-## Conteúdo deste README
-- Instalação (clonar, dependências)
-- Como executar em desenvolvimento
-- Como gerar um build de produção
-- Variáveis opcionais (API do Google Places)
-- Estrutura básica e descrição das páginas presentes
+Site institucional da agência **+55 Lab**, feito em React (Create React App). Apresenta os serviços, os projetos e as marcas com que a agência trabalha, a equipa e os contactos. Inclui também um formulário de contacto que envia emails através do EmailJS.
 
 ---
 
-## 1. Obter o código
+## O que o site faz
 
-Clone o repositório localmente:
+| Página | Rota | O que tem |
+|---|---|---|
+| Início | `/` | Hero com vídeo, carrossel de serviços, carrossel automático de logos de marcas (que também se pode arrastar com o rato ou com o dedo), destaques de projetos, avaliações do Google e botões de contacto. |
+| Serviços | `/Servicos` | Lista detalhada dos serviços da agência (redes sociais, produção audiovisual, cobertura de eventos, etc.). |
+| Projetos | `/Projetos` | Galeria com todas as marcas e clientes. Cada cartão mostra o logo e abre a página da marca. |
+| Página da marca | `/brand-instagram/:brandId` | Publicações da marca embebidas: Instagram, TikTok, LinkedIn e vídeos do Google Drive, todas com o mesmo estilo de cartão e pré-visualização. |
+| Sobre Nós | `/SobreNos` | Missão, visão e apresentação da equipa. |
+| Contactos | `/Contactos` | Formulário de contacto com validação. O botão só fica ativo quando os campos obrigatórios estão preenchidos, e depois de enviar aparece um aviso de sucesso ou de erro. Ao lado ficam os contactos diretos (email, telefone, Instagram). |
+
+Em todas as páginas há uma barra de navegação (`Navbar`) e um rodapé (`Footer`).
+
+---
+
+## Requisitos
+
+Antes de começar, precisas de ter instalado:
+
+- **[Node.js](https://nodejs.org/)**, versão 18 ou mais recente (recomendada a LTS). O npm vem incluído.
+- **[Git](https://git-scm.com/)**, para clonar o repositório.
+
+Para confirmar que estão instalados, corre no terminal:
 
 ```bash
-git clone <url-do-repo>
-cd SiteMaisCincoCinco
+node -v
+npm -v
+git --version
 ```
 
-## 2. Instalar dependências
+---
 
-Recomendo usar o npm com o flag `--legacy-peer-deps` caso ocorram conflitos de peer dependencies:
+## Instalação
+
+**1. Clonar o repositório**
+
+```bash
+git clone https://github.com/nicoly05/Mais55.git
+cd Mais55
+```
+
+**2. Instalar as dependências**
 
 ```bash
 npm install --legacy-peer-deps
 ```
 
-## 3. Executar em desenvolvimento
+> É preciso usar `--legacy-peer-deps` porque o projeto tem versões de bibliotecas que entram em conflito entre si (por exemplo, Material UI v4 e v6). Sem esta opção, o `npm install` (e também o `npm ci`) falha.
 
-Inicie a aplicação localmente (porta padrão 3000):
+**3. Arrancar em modo de desenvolvimento**
 
 ```bash
 npm start
 ```
 
-Abra `http://localhost:3000` no navegador.
+O site abre em [http://localhost:3000](http://localhost:3000) e atualiza sozinho sempre que guardas um ficheiro.
 
-## 4. Gerar build de produção
-
-Para compilar uma versão para produção:
+**4. Gerar a versão de produção**
 
 ```bash
 npm run build
 ```
 
-Os ficheiros finais ficam em `./build/`.
-
-## 5. Integração opcional: Google Places / Avaliações
-
-Se quiser integrar avaliações automáticas do Google (Google Places API), crie um ficheiro `.env` na raiz com a chave da API (NUNCA comite chaves públicas):
-
-```
-REACT_APP_GOOGLE_PLACES_API_KEY=your_api_key_here
-REACT_APP_GOOGLE_PLACE_ID=your_place_id_here
-```
-
-A chave deve ser usada por um endpoint servidor (proxy/express) idealmente, para não expor a API key no front-end. No estado atual do projeto existem secções de avaliações estáticas que podem ser substituídas por chamadas a esse endpoint.
+Os ficheiros finais ficam na pasta `build/`, prontos para publicar em qualquer alojamento estático (Netlify, Vercel, here.now, etc.). Como o site usa React Router, o alojamento tem de redirecionar todas as rotas para `index.html`. Se o alojamento não tiver essa opção, copia `build/index.html` para `build/404.html`.
 
 ---
 
-## 6. Estrutura do projeto (resumo)
+## Principais bibliotecas
 
-- `src/` — código fonte React
-  - `src/pages/` — páginas principais do site
-    - `Home.js` — Página inicial. Contém hero, secção de serviços com carrossel, grid de projetos (2x2), secção de avaliações (ligação direta para comentários no Google Maps) e CTAs.
-    - `Servicos.js` — Página com listagem detalhada de serviços e descrições (filtros por categoria).
-    - `Projetos.js` — Página que lista projetos com filtros e detalhes; permite navegar para cada projeto/categoria.
-    - `Contactos.js` — Página de contactos com elementos acionáveis (link para Instagram, `mailto:`, `tel:`) e carrossel de imagens de fundo.
-    - `BrandInstagram.js` — Página de integração/embed de Instagram (exibe posts ou reel embeds).
-    - `SobreNos.js` — Página institucional com descrição da agência e equipa.
-  - `src/components/` — componentes reutilizáveis
-    - `Navbar.js` — navegação principal (usa `NavLink` para destacar rota ativa)
-    - `Footer.jsx`, `InstagramEmbed.jsx`, etc.
-  - `src/styles/` — ficheiros CSS por página/componente (ex.: `Home.css`, `Servicos.css`)
-  - `src/assets/` — imagens e ícones usados no site
+| Biblioteca | Para que serve |
+|---|---|
+| `react`, `react-dom` | Base do site |
+| `react-router-dom` | Navegação entre páginas |
+| `@mui/material`, `@material-ui/core`, `@emotion/*` | Componentes de interface |
+| `@emailjs/browser` | Envio do formulário de contacto por email |
+| `recharts` | Gráficos |
+| `jspdf` | Geração de PDFs |
+| `react-scripts` | Ferramentas do Create React App (servidor local e build) |
+
+Todas são instaladas automaticamente no passo 2.
 
 ---
 
-## 7. O que faz cada página (resumo funcional)
+## Formulário de contacto (EmailJS)
 
-- Página inicial (`Home`): apresenta hero com mensagem principal, carrossel de serviços (navegação card-a-card), grid de projetos 2x2 com overlay no hover, secção de avaliações do Google (links diretos para cada comentário) e CTAs para contacto.
-- Serviços (`Servicos`): lista filtros e cartões de serviço, com descrição detalhada e links para contactar ou contratar.
-- Projetos (`Projetos`): galeria de trabalhos dividida por categorias, com possibilidade de filtrar por tipo de projecto.
-- Contactos (`Contactos`): mostra telefone, email e Instagram com links acionáveis; possui carrossel de imagens de fundo e layout alinhado à esquerda.
-- Brand Instagram (`BrandInstagram`): página dedicada a embeds/feeds do Instagram.
-- Sobre Nós (`SobreNos`): missão, visão e equipa.
+O formulário da página **Contactos** envia as mensagens através do [EmailJS](https://www.emailjs.com/), que é gratuito até 200 emails por mês. Não é preciso nenhum servidor.
 
-## 8. Personalização rápida
+1. Cria uma conta no EmailJS e liga um serviço de email em **Email Services**. Isso dá-te o **Service ID**.
+2. Cria um template do tipo **Contact Us** em **Email Templates**, usando as variáveis `{{nome}}`, `{{email}}`, `{{telemovel}}`, `{{empresa}}`, `{{setor}}`, `{{servico}}` e `{{mensagem}}`, e põe `{{email}}` no campo **Reply To**. Isso dá-te o **Template ID**.
+3. Copia a **Public Key** em **Account → General**.
+4. Põe os três valores no topo de `src/pages/Contactos.js`:
 
-- Cores principais: editar variáveis em `src/App.css` (`--primary-pink`, `--dark`, etc.).
-- Textos e imagens: editar ficheiros em `src/pages/` e `src/assets/`.
+```js
+const EMAILJS_SERVICE_ID = 'service_xxxx';
+const EMAILJS_TEMPLATE_ID = 'template_xxxx';
+const EMAILJS_PUBLIC_KEY = 'a_tua_public_key';
+```
 
+> A Public Key não é secreta e pode ficar no código. Para evitar abusos, define o domínio do site em **Account → Security → Allowed domains**.
 
-## 9. Problemas comuns
+---
 
-- Se a aplicação não arrancar, corra `npm install --legacy-peer-deps` novamente.
-- Se houver problemas com o Google API, confirme que a chave está correta e que o endpoint do servidor (se usado) está a funcionar.
+## Estrutura do projeto
 
+```
+Mais55/
+├── public/                 # Ficheiros públicos (index.html, vídeo da home, logos, política de privacidade)
+├── src/
+│   ├── App.js              # Rotas do site
+│   ├── App.css             # Cores e estilos globais
+│   ├── pages/              # Páginas (Home, Servicos, Projetos, BrandInstagram, SobreNos, Contactos)
+│   ├── components/         # Componentes reutilizáveis
+│   │   ├── Navbar.js
+│   │   ├── Footer.jsx
+│   │   ├── SocialEmbed.jsx     # Cartão de vídeo (Instagram, TikTok, LinkedIn, Drive)
+│   │   ├── InstagramEmbed.jsx
+│   │   ├── InstagramMedia.js
+│   │   └── ServicosRows.js
+│   ├── styles/             # Um ficheiro CSS por página ou componente
+│   ├── assets/             # Imagens, fotos e logos
+│   │   └── brands/         # Logos das marcas (ficheiros terminados em _branco.png)
+│   └── data/               # Dados de exemplo (mockData.json)
+└── package.json
+```
 
+---
+
+## Como acrescentar uma marca nova
+
+1. Põe o logo branco em `src/assets/brands/` com o nome `<id>_branco.png`, sem espaços nem acentos.
+2. Acrescenta a marca ao array `imagens` em `src/pages/BrandInstagram.js`, com o mesmo `id` e os links das publicações.
+3. Confirma em `npm start` que a marca aparece em **Projetos**.
+
+> Um ficheiro com um nome inválido (com espaços, acentos ou uma extensão errada) pode impedir a página Projetos de abrir.
+
+---
+
+## Problemas comuns
+
+| Problema | Solução |
+|---|---|
+| `npm install` dá um erro de *peer dependencies* (ERESOLVE) | Usa `npm install --legacy-peer-deps`. |
+| Um erro de OpenSSL ao fazer `npm start` | Os scripts já incluem `--openssl-legacy-provider`. Confirma que estás a usar `npm start` e não `react-scripts start` diretamente. |
+| A página Projetos não abre | Verifica os nomes dos ficheiros novos em `src/assets/brands/`. |
+| O formulário mostra um erro ao enviar | Confirma os três IDs do EmailJS e abre a consola do browser (Cmd+Option+J no Mac) para ver a mensagem de erro. |
+| Avisos amarelos no terminal ao compilar | São avisos (warnings), não impedem o site de funcionar. |
