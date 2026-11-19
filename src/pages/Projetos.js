@@ -24,6 +24,8 @@ const logoFileById = {
   24: 'ds_football_foundation_branco.png',
   25: 'maria_lidiane_beauty_branco.png',
   26: 'skechers_branco.png',
+  30: 'mova_pilates_branco.png',
+  31: 'visionhammer_branco.png',
 };
 
 
@@ -230,7 +232,21 @@ const imagens = [
     titulo: "Seminário Advogados", 
     legenda: "Cobertura em tempo real e Produção Audiovisual",
     descricao: "Captação de fotos e vídeos em tempo real para Seminário Advogados"
-  },
+    },
+    { 
+      id: 30, 
+      categoria: [6, 10], 
+      titulo: "Mova Pilates", 
+      legenda: "Produção Audiovisual",
+      descricao: "Captação e edição de fotos e vídeos para Mova Pilates"
+    },
+    { 
+      id: 31, 
+      categoria: [6, 10], 
+      titulo: "Visionhammer", 
+      legenda: "Produção Audiovisual",
+      descricao: "Captação e edição de fotos e vídeos para Visionhammer"
+    },
 ];
 
 function Projetos() {
