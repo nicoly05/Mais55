@@ -151,26 +151,6 @@ const imagens = [
     ],
   },
   { 
-    id: 6, 
-    titulo: "Ruche", 
-    legenda: "Produção Audiovisual",
-    descricao: "Produção audiovisual  para captação de vídeos e uma seleção de fotografias.",
-    instagramPosts: [
-      {
-        instagramUrl: "https://www.instagram.com/p/Cb0WzyVosB_/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
-      },
-      {
-        instagramUrl: "https://www.instagram.com/reel/CdZOp_aI9nU/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
-      },
-      {
-        instagramUrl: "https://www.instagram.com/reel/CjJHr2ToIbM/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
-      },
-      {
-        instagramUrl: "https://www.instagram.com/p/CdEsn3RIzEY/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
-      }
-    ],
-  },
-  { 
     id: 7, 
     titulo: "Café Portugal", 
     legenda: "Gestão de Redes Sociais e Produção Audiovisual",

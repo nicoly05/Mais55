@@ -29,6 +29,7 @@ const logoFileById = {
   26: 'skechers_branco.png',
   27: 'novex_branco.png',
   28: 'visit_azores_branco.png',
+  29: 'seminario_luso_brasileiro_branco.png',
   30: 'mova_pilates_branco.png',
   31: 'visionhammer_branco.png',
   32: 'fiore_ditalia_branco.png',
@@ -67,12 +68,6 @@ const imagens = [
     id: 5, 
     categoria: [6, 10], 
     titulo: "Victory", 
-    legenda: "Produção Audiovisual",
-  },
-  { 
-    id: 6, 
-    categoria: [6, 11], 
-    titulo: "Ruche", 
     legenda: "Produção Audiovisual",
   },
   { 
@@ -154,12 +149,6 @@ const imagens = [
     legenda: "Produção Audiovisual",
   },
    { 
-    id: 20, 
-    categoria: [2], 
-    titulo: "Edite Psicologa", 
-    legenda: "Gestão de Redes Sociais",
-  },
-   { 
     id: 21, 
     categoria: [6, 7, 10], 
     titulo: "Top Player", 
@@ -170,12 +159,6 @@ const imagens = [
     categoria: [7, 10], 
     titulo: "Academia Barril", 
     legenda: "Design Gráfico",
-  },
-   { 
-    id: 23, 
-    categoria: [6], 
-    titulo: "Gabriela Rosa", 
-    legenda: "Produção Audiovisual",
   },
   { 
     id: 24, 
