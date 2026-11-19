@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/Contactos.css';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = 'service_r8clmr4';
+const EMAILJS_TEMPLATE_ID = 'template_pcllcps';
+const EMAILJS_PUBLIC_KEY = 'KnKREpqhU1p3j-juG';
+
 
 const SETORES = [
   'Restauração',
@@ -19,18 +25,23 @@ const SERVICOS = [
   'Outro',
 ];
 
-const SUCCESS_MESSAGE = 'Agradecemos a sua mensagem. Será analisada com atenção e responderemos no prazo máximo de 24 horas.';
+const SUCCESS_MESSAGE = 'Agradecemos a sua mensagem. Será analisada com atenção e responderemos assim que possível.';
 const ERROR_MESSAGE = 'Não foi possível enviar a mensagem. Tente novamente ou escreva-nos diretamente para geral@mais55lab.com.';
 
-/**
- * Visual-only send. Plug EmailJS in here later, for example:
- *   import emailjs from 'emailjs-com';
- *   await emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, PUBLIC_KEY);
- * Throw to surface ERROR_MESSAGE.
- */
 async function sendContactForm(payload) {
-  void payload;
-  return { ok: true };
+  const params = {
+    nome: payload.nome,
+    email: payload.email,
+    telemovel: payload.telemovel || '—',
+    empresa: payload.empresa || '—',
+    setor: payload.setor || '—',
+    servico: payload.servico || '—',
+    mensagem: payload.mensagem,
+  };
+
+  await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params, {
+    publicKey: EMAILJS_PUBLIC_KEY,
+  });
 }
 
 const INITIAL_FORM = {
@@ -47,6 +58,19 @@ const INITIAL_FORM = {
 function Contactos() {
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('idle');
+
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+  const isFormComplete =
+    form.nome.trim() !== '' &&
+    isEmailValid &&
+    form.mensagem.trim() !== '' &&
+    form.consentimento;
+
+  React.useEffect(() => {
+    if (status !== 'success' && status !== 'error') return;
+    const timer = setTimeout(() => setStatus('idle'), 6000);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const updateField = (event) => {
     const { name, type, checked, value } = event.target;
@@ -147,12 +171,25 @@ function Contactos() {
             </span>
           </label>
 
-          <button type="submit" className="contactSubmit" disabled={status === 'sending'}>
-            Enviar mensagem
+          <button
+            type="submit"
+            className="contactSubmit"
+            disabled={!isFormComplete || status === 'sending'}
+            title={!isFormComplete ? 'Preencha os campos obrigatórios' : undefined}
+          >
+            {status === 'sending' ? 'A enviar…' : 'Enviar mensagem'}
           </button>
 
-          {status === 'success' && <p className="formSuccess" role="status">{SUCCESS_MESSAGE}</p>}
-          {status === 'error' && <p className="formError" role="alert">{ERROR_MESSAGE}</p>}
+          {(status === 'success' || status === 'error') && (
+            <div
+              className={`formToast ${status === 'success' ? 'formToast--success' : 'formToast--error'}`}
+              role={status === 'success' ? 'status' : 'alert'}
+            >
+              <span className="formToast__icon">{status === 'success' ? '✓' : '!'}</span>
+              <p>{status === 'success' ? SUCCESS_MESSAGE : ERROR_MESSAGE}</p>
+              <button type="button" className="formToast__close" onClick={() => setStatus('idle')} aria-label="Fechar">×</button>
+            </div>
+          )}
         </form>
 
         <aside className="directContacts" aria-labelledby="direct-contacts-title">

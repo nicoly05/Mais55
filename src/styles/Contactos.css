@@ -211,3 +211,45 @@
     width: 100%;
   }
 }
+.formToast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 380px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-left: 5px solid;
+  animation: toastIn 0.3s ease-out;
+}
+.formToast p { margin: 0; font-size: 14px; line-height: 1.5; color: #222; }
+.formToast--success { border-color: #2e9e5b; }
+.formToast--error { border-color: #d64545; }
+.formToast__icon {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: #fff; font-weight: 700;
+}
+.formToast--success .formToast__icon { background: #2e9e5b; }
+.formToast--error .formToast__icon { background: #d64545; }
+.formToast__close {
+  background: none; border: none; cursor: pointer;
+  font-size: 20px; line-height: 1; color: #888; padding: 0 0 0 4px;
+}
+.contactSubmit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .formToast { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+}
