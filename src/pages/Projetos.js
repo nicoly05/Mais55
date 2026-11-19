@@ -5,7 +5,9 @@ import '../styles/Projetos.css';
 const brandLogos = require.context('../assets/brands', false, /_branco\.png$/);
 const logoFileById = {
   1: 'wrestlefest_branco.png',
+  2: 'janah_branco.png',
   3: 'escola_benfica_cascais_branco.png',
+  4: 'uap_branco.png',
   5: 'victory_branco.png',
   7: 'cafe_portugal_branco.png',
   8: 'cafe_gelo_rossio_branco.png',
@@ -13,6 +15,7 @@ const logoFileById = {
   10: 'villa_di_roma_branco.png',
   11: 'gelo_augusta_branco.png',
   12: 'ouro_my_story_hotels_branco.png',
+  13: 'brasa_lisboa_branco.png',
   14: 'ginasio_100_branco.png',
   15: 'ana_ferreira_hair_logo_completo_branco.png',
   16: 'julita_lima_branco.png',
@@ -24,228 +27,227 @@ const logoFileById = {
   24: 'ds_football_foundation_branco.png',
   25: 'maria_lidiane_beauty_branco.png',
   26: 'skechers_branco.png',
+  27: 'novex_branco.png',
+  28: 'visit_azores_branco.png',
   30: 'mova_pilates_branco.png',
   31: 'visionhammer_branco.png',
+  32: 'fiore_ditalia_branco.png',
+  33: 'vitelli_branco.png',
+  34: 'rota_lusa_branco.png',
+  35: "grilled_and_company_branco.png",
 };
 
 
 const imagens = [
   { 
     id: 1, 
-    categoria: [2, 5, 6, 7, 8], 
+    categoria: [2, 6, 8], 
     titulo: "WrestleFest", 
-    legenda: "Design Gráfico, Gestão de Redes, Produção Audiovisual, Cobertura em tempo real e Eventos",
-    descricao: "Design gráfico, gestão de redes sociais, produção audiovisual, cobertura em tempo real e eventos para WrestleFest"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 2, 
-    categoria: [6, 9], 
+    categoria: [2, 6, 9], 
     titulo: "Janah", 
-    legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para RTP"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 3, 
-    categoria: [2, 6, 7, 10], 
+    categoria: [2, 6, 10], 
     titulo: " Escola Benfica Cascais Malveira", 
-    legenda: "Design Gráfico, Gestão de Redes e Produção Audiovisual",
-    descricao: "Design gráfico, gestão de redes sociais e produção audiovisual para Benfica Cascais Malveira"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 4, 
     categoria: [6, 10],
     titulo: "UAPovoense", 
     legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para UAPovoense"
   },
   { 
     id: 5, 
     categoria: [6, 10], 
     titulo: "Victory", 
     legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para Victory"
   },
   { 
     id: 6, 
     categoria: [6, 11], 
     titulo: "Ruche", 
     legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para Ruche"
   },
   { 
     id: 7, 
-    categoria: [2, 11], 
+    categoria: [2, 6, 11], 
     titulo: "Café Portugal", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Café Portugal"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 8, 
-    categoria: [2, 11], 
+    categoria: [2, 6, 11], 
     titulo: "Café Gelo", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Café Gelo"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 9, 
-    categoria: [2, 11], 
+    categoria: [2, 6, 11], 
     titulo: "Taverna do Pescador", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Taverna do Pescador"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 10, 
-    categoria: [2, 11], 
+    categoria: [2, 6, 11], 
     titulo: "Villa di Roma", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Villa di Roma"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 11, 
-    categoria: [6, 11], 
+    categoria: [2, 6, 11], 
     titulo: "Gelo Augusta", 
-    legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para Gelo Augusta"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 12, 
-    categoria: [2, 11], 
+    categoria: [2, 6, 11], 
     titulo: "Restaurante Ouro", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Restaurante Ouro"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 13, 
     categoria: [2, 11], 
     titulo: "Brasa Lisboa", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Brasa Lisboa"
+    legenda: "Gestão de Redes Sociais",
   },
   { 
     id: 14, 
     categoria: [2, 10], 
-    titulo: "Academia 100%", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Academia 100%"
+    titulo: "Ginásio 100%", 
+    legenda: "Gestão de Redes Sociais",
   },
     { 
     id: 15, 
-    categoria: [2, 9], 
+    categoria: [2, 6, 9], 
     titulo: "Ana Ferreira Hair", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Ana Ferreira Hair"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
     { 
     id: 16, 
     categoria: [6, 12], 
     titulo: "Julita Imóveis", 
     legenda: "Produção Audiovisual",
-    descricao: "Captura e edição de fotos e vídeos para Julita Imóveis"
   },
     { 
     id: 17, 
     categoria: [2, 6, 8], 
     titulo: "Bailo", 
-    legenda: "Gestão de Redes e Produção Audiovisual",
-    descricao: "Gestão de redes sociais e produção audiovisual para Bailo"
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
   },
     { 
     id: 18, 
-    categoria: [2, 10], 
+    categoria: [2, 6, 8], 
     titulo: "TribX", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão do Tik Tok para TribX"
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
   },
     { 
     id: 19, 
     categoria: [2, 12], 
-    titulo: "Vila Dias Alojamento Local", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Vila Dias Alojamento Local"
+    titulo: "Villa Dias Alojamento Local", 
+    legenda: "Produção Audiovisual",
   },
    { 
     id: 20, 
     categoria: [2], 
     titulo: "Edite Psicologa", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Edite Psicologa"
+    legenda: "Gestão de Redes Sociais",
   },
    { 
     id: 21, 
-    categoria: [2, 6, 10], 
+    categoria: [6, 7, 10], 
     titulo: "Top Player", 
-    legenda: "Gestão de Redes e Produção Audiovisual",
-    descricao: "Gestão de redes e produção audiovisual para Top Player"
+    legenda: "Produção Audiovisual e Design Gráfico",
   },
    { 
     id: 22, 
-    categoria: [2], 
+    categoria: [7, 10], 
     titulo: "Academia Barril", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Academia Barril"
+    legenda: "Design Gráfico",
   },
    { 
     id: 23, 
     categoria: [6], 
     titulo: "Gabriela Rosa", 
     legenda: "Produção Audiovisual",
-    descricao: "Captura e edição de fotos e vídeos para Gabriela Rosa"
   },
   { 
     id: 24, 
     categoria: [6, 10], 
     titulo: "DS", 
     legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para DS"
   },
   { 
     id: 25, 
-    categoria: [6, 9], 
+    categoria: [2, 6, 9], 
     titulo: " Maria Lidiane Beauty", 
-    legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para Lidiane"
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
   },
   { 
     id: 26, 
     categoria: [5, 6, 8], 
     titulo: "Skechers - Nós Alive", 
-    legenda: "Cobertura em tempo real e Produção Audiovisual",
-    descricao: "Captação de fotos e vídeos em tempo real para Skechers - Nós Alive"
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
   },
    { 
     id: 27, 
     categoria: [5, 6, 8], 
     titulo: "Novex - Rock in Rio", 
-    legenda: "Cobertura em tempo real e Produção Audiovisual",
-    descricao: "Captação de fotos e vídeos em tempo real para Novex - Rock in Rio"
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
   },
    { 
     id: 28, 
     categoria: [5, 6, 8], 
     titulo: "Visit Azores - BTL", 
     legenda: "Cobertura em tempo real e Produção Audiovisual",
-    descricao: "Captação de fotos e vídeos em tempo real para Visit Azores - BTL"
   },
    { 
     id: 29, 
     categoria: [5, 6, 8], 
     titulo: "Seminário Advogados", 
-    legenda: "Cobertura em tempo real e Produção Audiovisual",
-    descricao: "Captação de fotos e vídeos em tempo real para Seminário Advogados"
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
     },
     { 
       id: 30, 
-      categoria: [6, 10], 
+      categoria: [6, 8], 
       titulo: "Mova Pilates", 
       legenda: "Produção Audiovisual",
-      descricao: "Captação e edição de fotos e vídeos para Mova Pilates"
     },
     { 
       id: 31, 
-      categoria: [6, 10], 
+      categoria: [6, 8], 
       titulo: "Visionhammer", 
       legenda: "Produção Audiovisual",
-      descricao: "Captação e edição de fotos e vídeos para Visionhammer"
+    },
+    { 
+      id: 32, 
+      categoria: [6, 11], 
+      titulo: "Fiore D'Italia", 
+      legenda: "Produção Audiovisual",
+    },
+    { 
+      id: 33, 
+      categoria: [2, 6, 11], 
+      titulo: "Vitelli", 
+      legenda: "Gestão de Redes Sociais e Produção Audiovisual",  
+    },
+    { 
+      id: 34, 
+      categoria: [2, 6, 11], 
+      titulo: "Rota Lusa", 
+      legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    },
+    { 
+      id: 35, 
+      categoria: [6, 11], 
+      titulo: "Grilled and Company", 
+      legenda: "Produção Audiovisual",
     },
 ];
 

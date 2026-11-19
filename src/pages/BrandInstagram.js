@@ -9,8 +9,8 @@ const imagens = [
   { 
     id: 1, 
     titulo: "WrestleFest", 
-    legenda: "Design Gráfico, Gestão de Redes, Produção Audiovisual, Cobertura em tempo real e Eventos",
-    descricao: "Desenvolvimento de identidade visual, gestão de redes sociais, captação e edição de fotos e vídeos, cobertura em tempo real, produção audiovisual, design gráfico e eventos para WrestleFest",
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e acompanhamento audiovisual dos eventos, com captação e produção de conteúdos no próprio dia. O trabalho inclui vídeos, fotografias e materiais específicos para YouTube e redes sociais.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DO3_NfjCLPR/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
@@ -55,8 +55,8 @@ const imagens = [
   { 
     id: 2, 
     titulo: "Janah Estética e Bem Estar", 
-    legenda: "Produção Audiovisual",
-    descricao: "Captação de fotos e vídeos para Janah Estética e Bem Estar",
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e produção audiovisual, com criação de conteúdos que reforçam a identidade da marca e a ligação com a sua audiência. A produção mensal inclui vídeos e fotografias.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DRMatqsDHSL/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
@@ -90,8 +90,8 @@ const imagens = [
   { 
     id: 3, 
     titulo: "Escola Benfica Cascais Malveira", 
-    legenda: "Design Gráfico",
-    descricao: "Identidade visual e gestão de redes sociais para Benfica Cascais Malveira",
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão da comunicação digital e produção regular de conteúdos para as redes sociais. O trabalho inclui captação de fotografia e vídeo, com entrega mensal de conteúdos para manter uma presença digital consistente.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DeML59xojMO/",
@@ -116,8 +116,8 @@ const imagens = [
    { 
     id: 4, 
     titulo: "União Atlético Povoense", 
-    legenda: "Design Gráfico",
-    descricao: "Identidade visual e gestão de redes sociais para União Atlético Povoense",
+    legenda: "Produção Audiovisual",
+    descricao: "Acompanhamento audiovisual da atividade da marca, incluindo a produção de vídeos de início de época e cobertura de eventos.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DchXfu_j32J/",
@@ -130,8 +130,8 @@ const imagens = [
    { 
     id: 5, 
     titulo: "Victory, Way To Win", 
-    legenda: "Design Gráfico",
-    descricao: "Identidade visual e gestão de redes sociais para Victory",
+    legenda: "Produção Audiovisual",
+    descricao: "Produção audiovisual para o campo de férias, com acompanhamento regular durante o mês de Julho das atividades e criação de conteúdos dinâmicos. São produzidos e entregues cinco vídeos por semana.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/Da5rpmDIfEH/",
@@ -153,8 +153,8 @@ const imagens = [
   { 
     id: 6, 
     titulo: "Ruche", 
-    legenda: "Design Gráfico",
-    descricao: "Identidade visual e gestão de redes sociais para Ruche",
+    legenda: "Produção Audiovisual",
+    descricao: "Produção audiovisual  para captação de vídeos e uma seleção de fotografias.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/p/Cb0WzyVosB_/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
@@ -173,8 +173,8 @@ const imagens = [
   { 
     id: 7, 
     titulo: "Café Portugal", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Café Portugal",
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e criação de conteúdos audiovisuais para destacar a oferta gastronómica e a identidade do restaurante. A produção mensal inclui cinco vídeos em formato Reels e dez fotografias.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DZmxCRLowge/",
@@ -274,8 +274,8 @@ const imagens = [
   { 
     id: 8, 
     titulo: "Café Gelo Rossio", 
-    legenda: "Gestão de Redes",
-    descricao: "Gestão de redes sociais para Café Gelo Rossio",
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão da comunicação digital e produção regular de conteúdos visuais para valorizar a identidade do espaço, os produtos e a experiência gastronómica. O trabalho inclui a entrega mensal de vídeos e fotografias.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/p/DZKeMdbspct/",
@@ -288,12 +288,125 @@ const imagens = [
       },
     ],
   },
-
+  {
+    id: 9, 
+    titulo: "Taverna do Pescador", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e desenvolvimento de conteúdos visuais para comunicar a identidade do restaurante e valorizar a sua oferta gastronómica. A entrega mensal inclui cinco vídeos Reels e dez fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DaiOxpBoL2P/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DZKdbz2ouub/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DW4d6-MjmUR/",
+      },
+    ],
+  },
+  { 
+    id: 10, 
+    titulo: "Villa di Roma", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão da presença digital do restaurante, com planeamento e criação de conteúdos que destacam a sua oferta gastronómica e experiência. São produzidos mensalmente cinco vídeos Reels e dez fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DekXxuoBZh2/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DcqSSr9O93R/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DbVSLOoxcXI/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DX2YnytsKiN/",
+      },
+    ],
+  },
+  { 
+    id: 11, 
+    titulo: "Gelo Augusta", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão da comunicação digital do restaurante, com criação de conteúdos focados na gastronomia, nos produtos e na experiência do espaço. São entregues mensalmente cinco vídeos Reels e dez fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DeeJgu0R5c5/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DfC6FlvTGV2/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DadbvfNoFpE/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DaVtzcfor3W/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DZpgJ-WIlvI/",
+      }
+    ],
+  },
+  { 
+    id: 12, 
+    titulo: "Restaurante Ouro", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e produção de conteúdos para reforçar a presença digital do restaurante e dar destaque à sua experiência gastronómica. A produção mensal contempla cinco vídeos Reels e dez fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/p/Da2jg6KNtf4/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/p/DcUJSe_Njpv/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/p/Dcs9ysmN9bf/",
+      },
+    ],
+  },
+  { 
+    id: 13, 
+    titulo: "Brasa Lisboa", 
+    legenda: "Gestão de Redes Sociais",
+    descricao: "Gestão de redes sociais para Brasa Lisboa",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/p/DTaBkFFDHQg/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/p/DTOXIAujNhD/",
+      },
+    ],
+  },
+  { 
+    id: 14, 
+    titulo: "Ginásio 100%", 
+    legenda: "Gestão de Redes Sociais",
+    descricao: "Gestão das redes sociais, assegurando o planeamento, desenvolvimento e acompanhamento da comunicação digital da marca.",
+  },
+  { 
+    id: 15, 
+    titulo: "Ana Ferreira Hair", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão de redes sociais e produção audiovisual para fortalecer a presença digital e comunicar a identidade da marca. O trabalho inclui a criação mensal de vídeos e uma seleção de fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/Deq8qGBOL6r/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DYxmmrJu3Wx/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/Dd9hXkYI9qf/",
+      },
+    ],
+  },
   { 
     id: 17, 
     titulo: "Bailo", 
-    legenda: "Gestão de Redes e Produção Audiovisual",
-    descricao: "Gestão de redes sociais e produção audiovisual para Bailo",
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
+    descricao: "Cobertura audiovisual de eventos, com registo dos principais momentos e criação de conteúdos que permitem prolongar a experiência para além do próprio evento. A entrega inclui um vídeo de resumo e uma seleção de fotografia",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DZsQSHmJeFY/",
@@ -328,10 +441,62 @@ const imagens = [
     ],
   },
   { 
+    id: 18, 
+    titulo: "TribX", 
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
+    descricao: "Acompanhamento audiovisual de um evento em Madrid, com captação de momentos relevantes, entrevistas e registo fotográfico. O projeto resultou num vídeo de resumo do evento, entrevistas e fotografias.",
+  },
+  { 
+    id: 19, 
+    titulo: "Villa Dias Alojamento Local", 
+    legenda: "Produção Audiovisual",
+    descricao: "Produção audiovisual para valorização do espaço e criação de conteúdos visuais que destacam as suas características e experiência. O projeto incluiu a entrega de vídeos e fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DcbsVttRHTX/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DYFn1JsOzeF/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/Db6NW8TxN91/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DXpQ3Kpjr2G/",
+      },
+    ],
+  },
+  { 
+    id: 21, 
+    titulo: "Top Player", 
+    legenda: "Produção Audiovisual e Design Gráfico",
+    descricao: "Acompanhamento audiovisual da atividade da marca, incluindo a produção de vídeos de início de época e cobertura de eventos. O projeto contempla também o desenvolvimento mensal de peças gráficas para apoiar a comunicação da marca.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DXNHMr8MAqZ/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DTWAKjVDHTi/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DVlPYigjDWd/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DT8pAB3DCZM/",
+      },
+    ],
+  },
+  { 
+    id: 22, 
+    titulo: "Academia Barril", 
+    legenda: "Design Gráfico",   
+    descricao: "Desenvolvimento de materiais gráficos para apoiar a comunicação da academia, garantindo uma identidade visual coerente e uma apresentação profissional dos conteúdos.",
+  },
+  { 
     id: 24, 
     titulo: "DS", 
     legenda: "Produção Audiovisual",
-    descricao: "Captação e edição de fotos e vídeos para DS",
+    descricao: "Produção audiovisual durante o campo de férias, realizado no mês de julho, com registo diário das atividades e dos principais momentos. São entregues dois vídeos por dia.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/Db_g5xsPMj_/",
@@ -412,6 +577,32 @@ const imagens = [
     ],
   },
   { 
+    id: 25, 
+    titulo: "Maria Lidiane Beauty", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Desenvolvimento da comunicação digital e produção regular de conteúdos audiovisuais.",
+  },
+  { 
+    id: 26, 
+    titulo: "Skechers - Nós Alive", 
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
+    descricao: "Produção audiovisual durante o festival NOS Alive, com acompanhamento e captação dos principais momentos da presença da marca no evento.",
+  },
+  { 
+    id: 27, 
+    titulo: "Novex - Rock in Rio", 
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
+    descricao: "Acompanhamento da marca durante o Rock in Rio, com produção de conteúdos audiovisuais ao longo da iniciativa. Foram entregues fotografias diárias, um vídeo de resumo por dia e videos para história.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/p/C8SVur4IFnP/",
+      }, 
+      {
+        instagramUrl: "https://www.instagram.com/p/C8o28lQqw5c/",
+      }
+    ],
+  },
+  { 
     id: 28, 
     titulo: "Visit Azores - BTL", 
     legenda: "Produção Audiovisual, Cobertura em tempo real e Eventos",
@@ -455,10 +646,10 @@ const imagens = [
       }
     ],
   },{ 
-    id: 27, 
-    titulo: "Novex - Rock in Rio", 
-    legenda: "Design Gráfico",
-    descricao: "Produção de vídeos e fotos para Novex - Rock in Rio",
+    id: 29, 
+    titulo: "Seminário Advogados", 
+    legenda: "Produção Audiovisual e Cobertura em Tempo Real",
+    descricao: "Produção audiovisual durante o congresso, com cobertura dos participantes que contrataram o serviço. Cada participante recebe dois vídeos e uma seleção de fotografias.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/p/C8SVur4IFnP/",
@@ -467,11 +658,12 @@ const imagens = [
         instagramUrl: "https://www.instagram.com/p/C8o28lQqw5c/",
       }
     ],
-  },{ 
+  },
+  { 
     id: 30, 
     titulo: "Mova Pilates", 
-    legenda: "Design Gráfico",
-    descricao: "Produção de vídeos e fotos para Mova Pilates",
+    legenda: "Produção Audiovisual",
+    descricao: "Produção audiovisual para a inauguração de um estúdio de Pilates, com captação da experiência, do espaço e dos momentos mais marcantes do evento. Foram produzidos três vídeos e dez fotografias.",
     instagramPosts: [
       {
         instagramUrl: "https://www.instagram.com/reel/DffRgViIHHN/",
@@ -479,6 +671,68 @@ const imagens = [
       {
         instagramUrl: "https://www.instagram.com/reel/Dfe1S2ioY9R/",
       }
+    ],
+  },
+  { 
+    id: 31, 
+    titulo: "Visionhammer", 
+    legenda: "Design Gráfico",
+    descricao: "Produção audiovisual durante o evento da Web Summit, com captação dos principais momentos e criação de conteúdos para comunicação digital. Foram entregues dois vídeos finais e uma seleção de fotografias para Linkedin e site.",
+  },
+  { 
+    id: 32, 
+    titulo: "Fiore D'Italia", 
+    legenda: "Gestão de Redes Sociais",
+    descricao: "Gestão de redes sociais para Fiore D'Italia",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DfR2_9chzTU/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/De67iigMrz0/",
+      },
+    ],
+  },
+  { 
+    id: 33, 
+    titulo: "Vitelli", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão da comunicação digital e criação de conteúdos audiovisuais para valorizar a identidade, os produtos e a experiência gastronómica do restaurante. O trabalho segue uma produção mensal de cinco vídeos Reels e dez fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/p/Dfu6akdB7eh/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/p/DezYWXnIxBq/",
+      },
+    ],
+  },
+  { 
+    id: 34, 
+    titulo: "Rota Lusa", 
+    legenda: "Gestão de Redes Sociais e Produção Audiovisual",
+    descricao: "Gestão da presença digital e produção de conteúdos para destacar a identidade e a oferta gastronómica do restaurante. O trabalho inclui a criação mensal de cinco vídeos Reels e dez fotografias.",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/DfcPuERj-Tl/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DesE1jROt01/",
+      },
+      {
+        instagramUrl: "https://www.instagram.com/reel/DaQn-RaOVVd/",
+      },
+    ],
+  },
+  { 
+    id: 35, 
+    titulo: "Grilled and Company", 
+    legenda: "Gestão de Redes Sociais",
+    descricao: "Gestão de redes sociais para Grilled and Company",
+    instagramPosts: [
+      {
+        instagramUrl: "https://www.instagram.com/reel/Dez2USeRZBw/",
+      },
     ],
   },
 ];
